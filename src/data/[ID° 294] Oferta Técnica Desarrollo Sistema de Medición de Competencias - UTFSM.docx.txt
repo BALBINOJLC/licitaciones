@@ -1,0 +1,1480 @@
+﻿GUX | Fábrica de Productos Digitales | Software, IA y Automatización  Logotipo
+
+El contenido generado por IA puede ser incorrecto. 
+
+
+
+
+Propuesta Técnica para el 
+Desarrollo del Sistema de Medición de Competencias Transversales Sello para la
+UNIVERSIDAD TÉCNICA FEDERICO SANTA MARÍA
+
+
+
+
+
+
+
+
+
+
+Mayo 2025
+
+
+1.        RESUMEN EJECUTIVO        3
+2.        ALCANCE DEL SERVICIO        5
+2.1.        Objetivo del Sistema        5
+2.2.        Características Generales (Objetivos Específicos)        5
+3.        REQUERIMIENTOS ESPECIFICOS        6
+3.1.        Funcionalidades Clave        6
+3.2.        Tipos de Usuarios        7
+3.3.        Seguridad y Acceso        8
+4.        INFRAESTRUCTURA TECNOLÓGICA        10
+4.1.        Stack de Desarrollo        10
+4.2.        Integraciones Necesarias        12
+5.        IMPLEMENTACIÓN Y SOPORTE        14
+5.1.        Enfoque de Implementación        14
+5.2.        Garantías y Soporte post-implementación        17
+5.3.        Plan de Capacitación        22
+6.        ROADMAP DE IMPLEMENTACIÓN        26
+6.1.        Plan de Implementación        26
+6.2.        Carta Gantt         27
+7.        ORGANIZACIÓN DEL PROYECTO        28
+7.1        Equipo de Trabajo        28
+7.2        Organización y coordinación        28
+8.        METODOLOGÍA DE TRABAJO        30
+9.        FACTORES CLAVES PARA EL ÉXITO EN LA IMPLEMENTACIÓN        32
+10.        PRESENTACIÓN DE LA EMPRESA        34
+10.1.        Antecedentes del Proponente        34
+10.2.        Antecedentes Generales de la Empresa        35
+10.3.        Experiencia en el Mercado        36
+10.4.        Referencia de servicios entregados similares a esta propuesta        47
+10.5.        Evidencia Experiencia General de la Empresa en el Servicio        54
+11.        EQUIPO DE TRABAJO – CV        57
+12.        MATERIA DE SOSTENIBILIDAD        60
+13.        POLÍTICA DE DIVERSIDAD E INCLUSIÓN        61
+1. RESUMEN EJECUTIVO 
+La presente propuesta responde a la necesidad de la Universidad Técnica Federico Santa María (UFST) de contar con un servicio especializado para el desarrollo e implementación de un Sistema de Medición, Control y Reporte de Competencias Transversales, que permita evaluar el progreso formativo de sus estudiantes de manera sistemática, integrada y basada en datos. Esta solución tiene por objetivo fortalecer los procesos institucionales de evaluación y seguimiento, entregando herramientas tecnológicas que contribuyan a la mejora continua de la calidad educativa.
+La propuesta contempla el diseño e implementación de una plataforma web alojada en la nube, desarrollada bajo un enfoque modular que incluye funcionalidades clave como: gestión de competencias y rúbricas, evaluación y seguimiento del desempeño estudiantil, visualización de indicadores clave a través de un panel de control, e integración bidireccional con plataformas institucionales como SIGA y Moodle. Esta solución será entregada bajo modalidad “llave en mano” e incluirá pruebas técnicas, documentación, y capacitación para asegurar su correcta adopción.
+El servicio incorpora la adaptación a distintos perfiles de usuarios (administradores, jefes de carrera y estudiantes), altos estándares de seguridad en el acceso a la información mediante autenticación con Microsoft EntraID, y la posibilidad de realizar ajustes dinámicos al sistema sin afectar su funcionamiento. También se contempla soporte técnico post-implementación durante seis meses, y recursos formativos como manuales y cápsulas de aprendizaje.
+Esta solución, basada en tecnologías avanzadas y herramientas integrables, incluirá capacitación continua y soporte técnico operativo, promoviendo una mejora sostenida del servicio. Además, se alinea con el compromiso de la UFST por mantener una operación eficiente, accesible y sostenible, apoyando la transformación digital de sus procesos con una visión de largo plazo centrada en la excelencia operativa y el cuidado responsable de los recursos.
+La implementación de la solución se hará en tres fases, de acuerdo con el esquema propuesto por Disciplined Agile, del PMI (pmi.org/disciplined-agile/):
+1. Inception o concepción de la solución. El objetivo es conocer la visión de los stakeholders, tanto de la parte académica, como técnica, haciendo un levantamiento más detallado y profundo de los requerimientos, validación de aspectos de integración, y diseño del modelo funcional y técnico de la plataforma.
+2. Construcción. El objetivo es completar desarrollo de la plataforma, incluyendo la integración con sistemas existentes, validaciones funcionales y, finalmente, asegurar el cumplimiento del alcance definido, particularmente cumpliendo con los módulos definidos en los requisitos, así como la integración al sistema SIGA (Sistema de Información de Gestión Académica) y Moodle (plataforma de gestión de cursos y programas).
+3. Transition o transición operativa. El objetivo es realizar la transferencia tecnológica a la organización, lo que incluye capacitación a equipos técnicos y despliegue final con soporte operativo.
+Fortalezas Diferenciadoras de la Propuesta
+* Enfoque metodológico integral y probado: Aplicación sinérgica de enfoques BPM, Disciplined Agile, que considera Agile y Lean, que aseguran un diseño centrado en el usuario, alto impacto institucional y sostenibilidad operativa, validado en contextos complejos como el educativo.
+* Implementación iterativa y adaptable: Plan de trabajo basado en iteraciones y backlog priorizado, lo que permite entregar valor progresivo y validaciones tempranas con usuarios clave (docentes, unidades académicas, TI), facilitando la alineación con el quehacer universitario y el calendario académico.
+* Gestión del cambio estructurada y participativa: En colaboración con equipos de Gestión del Cambio institucional, se promueve la adopción cultural de la plataforma, facilitando la formación de usuarios internos (docentes y administrativos), el desarrollo de comunidades de práctica y el alineamiento con la visión educativa institucional.
+* Experiencia sectorial en educación superior y formación continua: Se posee una sólida trayectoria en el diseño e implementación de soluciones para instituciones educativas en Chile y Latinoamérica. Han trabajado en proyectos de transformación digital, automatización de procesos académicos, formación de competencias y gestión del talento, aportando una visión pedagógica y tecnológica coherente con las exigencias de la UFST.
+* Equipo multidisciplinario con expertise sectorial: Se cuenta con un equipo senior conformado por consultores especialistas en procesos formativos, expertos en tecnologías educativas (EdTech), desarrolladores full-stack, arquitectos de software, y especialistas en experiencia de usuario. Esto permite abordar proyectos con foco en resultados tangibles y alineación con el modelo educativo institucional. En particular, este proyecto considera un equipo de profesionales que actualmente son profesores de instituciones de educación superior, en ámbitos de ingeniería y tecnología. 
+* Especialistas en Desarrollo de Productos Digitales: Los profesionales a cargo son especialistas en crear soluciones tecnológicas adaptadas a las necesidades específicas de cada organización, con fuerte especialización en experiencia de usuario y diseño de interfases amigables, intuitivas e inclusivas. Esta estructura permite diseñar, construir e integrar productos de forma ágil y eficiente, asegurando una rápida alineación con los procesos y sistemas estratégicos del cliente.
+* Inteligencia artificial y automatización: El equipo cuenta con más de 20 años de experiencia liderando proyectos de automatización con inteligencia artificial, hiperautomatización, business intelligence, visión computacional y análisis avanzado de datos. Se ha optimizado procesos de misión crítica en organizaciones de alta exigencia en Chile y el extranjero, mejorando significativamente su eficiencia operativa y capacidad de adaptación.
+________________
+   2. ALCANCE DEL SERVICIO
+   1. Objetivo del Sistema
+Desarrollar e implementar una plataforma tecnológica moderna, segura, inclusiva y escalable que permita la medición, control, evaluación y reporte continuo de las Competencias Transversales Sello de los estudiantes de la UFST, a lo largo de toda su trayectoria académica. Esta plataforma estará diseñada para optimizar los procesos de evaluación y seguimiento, integrándose de manera bidireccional con los sistemas institucionales existentes (como SIGA y Moodle), y entregando reportes analíticos e indicadores clave de desempeño que fortalezcan la toma de decisiones pedagógicas basadas en datos. Asimismo, la solución contribuirá a la mejora continua de la formación estudiantil, promoviendo una cultura institucional orientada a la excelencia académica, la innovación educativa y la gestión proactiva del desarrollo de competencias, en línea con los objetivos estratégicos sustentables de transformación digital de la UFST.
+
+
+   2. Características Generales (Objetivos Específicos)
+   * Desarrollar una plataforma web alojada en la nube, que sea moderna, segura e inclusiva, accesible desde distintos dispositivos y escalable, permitiendo una implementación efectiva en todos los campus y niveles formativos de la UFST.
+   * Diseñar e implementar mecanismos de medición y reporte de competencias transversales, aplicables a estudiantes de distintas carreras y niveles académicos, garantizando la trazabilidad de su desarrollo a lo largo del tiempo.
+   * Incorporar un sistema flexible de creación, gestión y aplicación de rúbricas de evaluación, ajustado a los criterios institucionales, que permita su modificación dinámica durante el proceso evaluativo sin afectar los datos ni el historial de resultados.
+   * Proporcionar funcionalidades de acceso personalizado para distintos perfiles de usuarios (jefes de carrera, responsables académicos y estudiantes), asegurando el uso pertinente de la información y la participación en el proceso evaluativo.
+   * Facilitar la autoevaluación estudiantil, como parte del proceso formativo, mediante una interfaz intuitiva que fomente la reflexión individual sobre el desarrollo de sus propias competencias.
+   * Generar reportes analíticos y visualizaciones de indicadores clave de desempeño, que permitan monitorear el progreso estudiantil, detectar brechas formativas y apoyar la toma de decisiones pedagógicas a nivel institucional.
+   * Permitir la incorporación de ajustes funcionales y mejoras en el sistema sin interrupciones de servicio, tales como la inclusión de nuevas variables, actualización de rúbricas o ampliación de funcionalidades, asegurando la continuidad operativa y la evolución de la plataforma.
+   3. REQUERIMIENTOS ESPECÍFICOS
+La propuesta contempla: 
+   3. Funcionalidades Clave
+El sistema considera los siguientes módulos:
+   * Gestor de Competencias: Módulo en el cual el usuario Administrador podrá crear, editar, organizar y actualizar competencias transversales que se evalúan en la institución. Estas competencias estarán alineadas al modelo educativo de la UFST y podrán configurarse según niveles formativos, carreras, sedes y campus. El sistema permitirá la gestión multicapa de competencias para asegurar su aplicabilidad y trazabilidad institucional.
+   * Gestor de Rúbricas de Evaluación: Módulo en el cual, el usuario Administrador podrá crear, agregar, modificar y/o eliminar las distintas rúbricas de evaluación para cada competencia transversal, en cada uno de sus niveles formativos. Asimismo, podrá ajustar las rúbricas durante el proceso evaluativo del estudiantado, sin modificar los datos o resultados de la evaluación en curso (ajustes de redacción, cambios en el número de criterios evaluativos de la rúbrica, entre otros).
+   * Módulo de Evaluación y Seguimiento: Módulo en el cual tanto los estudiantes como los jefes de carrera podrán realizar procesos de evaluación y autoevaluación. Los resultados quedarán asociados a los perfiles individuales de los estudiantes, permitiendo analizar su evolución en el tiempo, identificar brechas formativas y fortalecer la retroalimentación pedagógica. El módulo estará disponible en fechas y periodos definidos por la administración académica.
+   * Panel de Control y Reportería Avanzada: Módulo central de gestión estratégica donde el Administrador podrá monitorear el uso del sistema, analizar indicadores clave de desempeño y generar reportes personalizados. Incluirá filtros por carrera, nivel formativo y sede. Permitirá visualizar métricas como porcentaje de participación, distribución de logros por competencia, evolución histórica por estudiante, entre otros. También permitirá exportar informes para su uso en procesos de acreditación, aseguramiento de la calidad y planificación académica.
+   * Integración Bidireccional con Plataformas Institucionales: El sistema se conectará de forma bidireccional con las plataformas clave de la UFST, facilitando la sincronización y transferencia automática de datos sobre los alumnos, jefes de carrera, asignaturas, etc. Sistemas claves para tener en cuenta:
+   * SIGA: Para gestión académica, inscripción de asignaturas, perfiles de estudiantes y jefes de carrera.
+   * Moodle (Aula Virtual): Para alineación con actividades de aprendizaje, cursos y procesos evaluativos complementarios.
+
+
+Además, podrá integrarse en fases futuras con otras herramientas institucionales como Power BI, SharePoint, u otras plataformas de análisis o gestión de documentos, según necesidades emergentes.
+   * Módulo de Configuración y Administración Avanzada: Permitirá a los administradores del sistema configurar parámetros globales, definir roles de usuario, gestionar permisos, establecer calendarios de evaluación y personalizar la visualización de la interfaz. Este módulo también incluirá funciones de auditoría, trazabilidad de cambios, logs de actividad por usuario y gestión de versiones del sistema.
+
+
+   4. Tipos de Usuarios
+El sistema contemplará distintos perfiles de usuario, cada uno con permisos específicos, responsabilidades diferenciadas y acceso a funcionalidades según su rol dentro del ecosistema académico. Esto garantizará una experiencia segura, controlada y alineada con la gobernanza institucional.
+   * Administrador
+Descripción: Usuario perteneciente al equipo de gestión institucional, dirección académica o soporte TI, responsable de la administración general del sistema.
+Permisos y Funciones:
+   * Crear, editar y eliminar competencias transversales.
+   * Gestionar las rúbricas de evaluación y sus versiones.
+   * Configurar calendarios, usuarios, niveles formativos y sedes.
+   * Asignar permisos y roles a otros usuarios.
+   * Supervisar el uso del sistema a través de paneles de control y reportería.
+   * Administrar parámetros técnicos del sistema (integraciones, autenticación, logs).
+   * Gestionar respaldos, actualizaciones y auditorías de actividad.
+   * Jefe de Carrera
+Descripción: Docente o académico con responsabilidad sobre la coordinación de programas de estudio en una carrera o unidad académica específica. Su rol en el sistema está centrado en la supervisión, evaluación y seguimiento del desarrollo de competencias de los estudiantes a su cargo.
+
+
+Permisos y Funciones:
+   * Visualizar y analizar resultados de evaluación por carrera cohorte o nivel.
+   * Participar en procesos de evaluación del estudiantado.
+   * Validar o complementar procesos de autoevaluación de los estudiantes.
+   * Acceder a reportes agregados e individuales para orientar acciones pedagógicas.
+   * Comunicar retroalimentación a los estudiantes, cuando el modelo institucional lo contemple.
+   * Estudiante
+Descripción: Usuario final del sistema, correspondiente al alumnado regular de la UFST. Su participación es fundamental para realizar procesos de autoevaluación y para tener visibilidad de su progreso en competencias sello.
+Permisos y Funciones:
+   * Acceder a las competencias definidas según su nivel y carrera.
+   * Realizar autoevaluaciones utilizando las rúbricas asignadas.
+   * Visualizar su historial de evaluaciones y el progreso por competencia.
+   * Recibir retroalimentación y recomendaciones formativas.
+   * Participar en ciclos de mejora continua como parte de su formación integral.
+
+
+   5. Seguridad y Acceso
+El sistema garantizará altos estándares de seguridad informática para la protección de la información institucional y de los datos personales de los estudiantes, alineándose con las normativas nacionales vigentes en Chile, incluyendo la Ley N° 19.628 sobre Protección de la Vida Privada y los principios del Consejo para la Transparencia en materia de tratamiento de datos personales en organismos públicos. 
+   * Autenticación Segura con credenciales institucionales (Microsoft EntraID).
+Se implementará una autenticación federada y robusta mediante credenciales institucionales integradas con Microsoft EntraID, asegurando la trazabilidad y validación de identidades mediante Single Sign-On (SSO) y autenticación multifactor (MFA), según los estándares del ecosistema tecnológico de la UFST.
+
+
+
+
+   * Registro de Actividades mediante log de acceso y modificaciones.
+El sistema contará con logs detallados de auditoría, que registrarán accesos, modificaciones y actividades críticas realizadas por los usuarios, permitiendo un seguimiento exhaustivo de la operación y facilitando procesos de fiscalización, control interno y respuesta ante incidentes. Estos registros serán almacenados de manera segura y con retención conforme a las políticas internas de gestión de la información de la UFST.
+
+
+   * Control de Permisos según roles.
+Se establecerá un modelo de gestión de accesos basado en roles y perfiles de usuario, garantizando el principio de privilegio mínimo y restringiendo el acceso a información sensible exclusivamente a los usuarios autorizados. Esta segmentación reducirá la superficie de exposición del sistema y ayudará a cumplir con los requisitos de confidencialidad, integridad y disponibilidad establecidos en las buenas prácticas internacionales como ISO/IEC 27001, que también son reconocidas en los marcos de referencia aplicables en Chile.
+   * Plan de Continuidad Operativa (BCP) y Recuperación ante Desastres (DRP)
+La solución propuesta incorpora un Plan de Continuidad del Negocio (BCP) y un Plan de Recuperación ante Desastres (DRP), con el objetivo de garantizar la resiliencia y disponibilidad del sistema frente a eventos críticos que puedan comprometer su funcionamiento, integridad o acceso. Ambos planes han sido desarrollados conforme a las mejores prácticas internacionales, incluyendo los lineamientos de las normas ISO 22301 (gestión de continuidad del negocio) e ISO/IEC 27031 (preparación para la recuperación de tecnologías de la información y comunicaciones).
+El BCP contempla protocolos estructurados para la restauración de servicios esenciales, estableciendo rutas de acción ante interrupciones operativas, fallas tecnológicas, ciberincidentes o eventos de fuerza mayor. Asimismo, considera planes de comunicación efectiva con las contrapartes institucionales y acciones preventivas para mitigar el impacto de interrupciones en los servicios críticos.
+El DRP, por su parte, asegura la recuperación rápida y confiable de los datos y la infraestructura tecnológica asociada, mediante respaldos automatizados, almacenamiento en entornos redundantes y procedimientos documentados de restauración, los cuales son validados regularmente a través de pruebas técnicas.
+Ambos planes estarán disponibles para su revisión por parte del equipo técnico de la UFST y podrán ser ajustados y alineados con los protocolos institucionales durante la fase de implementación. Esta capacidad de respuesta refuerza el compromiso con la entrega de una solución estable, segura y sostenible, adecuada para entornos de alta exigencia operativa como el educativo.
+
+
+
+
+
+
+   4. INFRAESTRUCTURA TECNOLÓGICA
+La solución propuesta contempla una infraestructura tecnológica moderna, escalable y segura, diseñada bajo principios de alta disponibilidad, eficiencia operativa y facilidad de mantenimiento. El sistema será desarrollado utilizando un stack tecnológico de vanguardia, que incluye:
+   1. Stack de Desarrollo
+   * Backend: Basado en framework Django sobre Python, lo que permitirá una arquitectura robusta, modular y fácilmente integrable con sistemas existentes. Lo que permitirá contar con fortalezas como:
+   * Seguridad integrada: Django incluye mecanismos avanzados de protección contra amenazas comunes, cumpliendo con los principios de seguridad por diseño.
+   * Modularidad y mantenibilidad: La arquitectura orientada a componentes facilita la evolución de funcionalidades, permitiendo agregar nuevos módulos (como dashboards o servicios analíticos) sin afectar la estabilidad del sistema.
+   * Facilidad de integración: Su compatibilidad con REST Frameworks, permite exponer servicios web seguros, lo cual es esencial para la integración bidireccional con sistemas institucionales como SIGA y Moodle, y para interoperar con plataformas analíticas, SSO, o herramientas de reportería.
+   * Frontend: El desarrollo del frontend estará basado en React, utilizado a nivel global para la construcción de interfaces de usuario dinámicas, interactivas y reutilizables. Esta tecnología será complementada con los estándares HTML5 y CSS3, lo que garantizará una experiencia de usuario fluida, adaptable y accesible desde diversos dispositivos (PCs, tablets y smartphones). Algunas de sus virtudes son:
+   * Arquitectura basada en componentes reutilizables: Permitirá construir vistas modulares, manteniendo una interfaz consistente y facilitando la mantención y escalabilidad del sistema. Esto es especialmente útil cuando se requiere personalizar vistas según el perfil del usuario (estudiante, jefe de carrera, administrador).
+   * Interactividad avanzada en tiempo real: Optimizará la renderización de componentes, reduciendo tiempos de carga y mejorando la respuesta a las acciones del usuario, incluso en contextos de carga alta o conexión inestable.
+   * Alta capacidad de personalización y escalabilidad: Permitirá adaptar la interfaz a distintas carreras, niveles formativos y sedes, conservando una lógica visual coherente con la identidad institucional de la UFST.
+   * Base de Datos: Uso combinado de PostgreSQL (para datos estructurados relacionales) y MongoDB (para datos semiestructurados), permitiendo flexibilidad en el modelado de información y una alta capacidad de escalabilidad, integrando lo mejor de los modelos relacional y documental. Esta estrategia no solo optimiza el rendimiento del sistema, sino que también facilita su mantenimiento evolutivo, permitiendo incorporar nuevas funcionalidades o tipos de datos sin comprometer la arquitectura general.
+   * Infraestructura: Implementación sobre servidores [a][b]Linux utilizando contenedores con Docker y orquestación a través de Kubernetes (u OpenShift), asegurando un entorno flexible, portable y resiliente. 
+   * Despliegues automatizados y controlados
+   * Escalabilidad 
+   * Balanceo de carga 
+   * Gestión de recursos (CPU, memoria, almacenamiento) por servicio.
+   * Almacenamiento de archivos: Uso de la infraestructura propia de la UFST para el resguardo de documentos, respaldos y artefactos generados por el sistema, cumpliendo con los requisitos de soberanía de datos y alineación con la política tecnológica institucional.
+Este enfoque permite a la UFST mantener el control total sobre los datos sensibles, incluyendo:
+   * Resultados de evaluaciones de competencias transversales.
+   * Rúbricas institucionales y sus versiones.
+   * Logs de actividades de usuarios.
+   * Reportes generados por el sistema (individuales y agregados).
+   * Configuraciones del sistema y archivos adjuntos.
+Además, se garantiza la compatibilidad con las políticas tecnológicas institucionales existentes, tales como:
+   * Reglas de respaldo periódico automatizado, asegurando copias redundantes y verificadas en medios definidos por la institución.
+   * Protección de accesos mediante credenciales institucionales y permisos diferenciados, evitando el acceso no autorizado a documentos sensibles.
+   * Este diseño asegura que la UFST pueda auditar, proteger y evolucionar el sistema en el tiempo, sin depender de terceros externos, y con plena alineación a sus políticas de transformación digital responsable, autonomía tecnológica y gobernanza institucional de datos.[c]
+________________
+
+
+GUX está preparado para implementar la solución tanto en entornos cloud como en infraestructura local de la UFST. Se cuenta con equipos especializados en plataformas en la nube (AWS, Azure y Google Cloud Platform), lo que nos permite adaptarnos sin dificultad a la arquitectura tecnológica definida por la institución, respetando sus políticas de seguridad, soberanía de datos y continuidad operativa.
+
+
+   2. Integraciones Necesarias
+El sistema propuesto incluirá un conjunto robusto de mecanismos de integración vía API RESTful, diseñados para garantizar la interoperabilidad con las plataformas tecnológicas clave de la UFST, tanto en el plano académico como administrativo. Estas integraciones permitirán un flujo continuo, bidireccional y seguro de información, optimizando los procesos de carga, actualización y consulta de datos entre sistemas institucionales.
+
+
+Entre las integraciones contempladas se encuentran:
+
+
+   * Sistema de Gestión Académica (SIGA) – vía API RESTful: El sistema contará con servicios web para:
+   * Consultar y sincronizar información académica (asignaturas, estudiantes, niveles formativos, periodos académicos).
+   * Actualizar estados evaluativos y resultados asociados a competencias sello.
+   * Asignar cohortes, carreras y relaciones jerárquicas con roles académicos.
+
+
+Las API estarán desarrolladas siguiendo los principios de RESTful (HTTP, JSON, URI bien definidos), con mecanismos de autenticación segura mediante tokens o credenciales OAuth2, y documentación Swagger u OpenAPI para facilitar su consumo por parte del equipo técnico de la UFST.
+
+
+   * Autenticación Unificada con Microsoft EntraID (Azure AD): La solución se integrará con el servicio de identidad institucional basado en Microsoft EntraID, permitiendo:
+   * Inicio de sesión único (SSO) con credenciales institucionales.
+   * Gestión centralizada de usuarios y roles desde el directorio activo universitario.
+   * Sincronización de atributos de usuario (perfil, carrera, rol académico) para una personalización adecuada del acceso y la interfaz.
+   * Aplicación de políticas de seguridad institucional como autenticación multifactor (MFA), bloqueo por intentos fallidos y segmentación por grupos organizacionales.
+
+
+   * Compatibilidad con Herramientas de Análisis de Datos Institucionales: El sistema será compatible con herramientas de inteligencia institucional y reportería, como Power BI, Tableau u otras plataformas definidas por la UFST, permitiendo:
+   * Exportación de datos estructurados y filtrables
+   * Integración directa con motores de analítica para la construcción de dashboards académicos y seguimiento de indicadores clave de desempeño (KPI).
+   * Automatización de reportes 
+   * Moodle (Aula virtual): Se considera una integración que permitirá:
+   * Sincronizar usuarios, cursos y relaciones académicas definidas en Moodle con la plataforma de competencias.
+   * Enviar o recibir eventos desde Moodle que puedan influir en el seguimiento y evaluación institucional.
+   * La integración podrá realizarse vía servicios RESTful expuestos por Moodle o mediante LTI si así lo requiere el ecosistema institucional actual.[d]
+________________
+
+
+   5. IMPLEMENTACIÓN Y SOPORTE
+   1. Enfoque de Implementación
+La implementación se realizará bajo la modalidad “llave en mano”, asegurando la entrega de una solución completamente funcional. Para esto se propone aprovechar un enfoque metodológico basado en Disciplined Agile, del PMI (pmi.org/disciplined-agile).
+   1. Enfoque Metodológico Disciplined Agile para el Proyecto de Plataforma Web
+ Imagen 
+
+
+Figura 1. Esquema de Desarrollo Ágil basado en Disciplined Agile del PMI (fuente propia)
+El enfoque Disciplined Agile del PMI proporciona un marco flexible y adaptable que resulta ideal para el desarrollo de esta plataforma web educativa con integración bidireccional. Este marco divide el proyecto en tres fases principales:
+
+
+Fase de Inception (Inicio)
+En esta fase inicial se establecen los cimientos del proyecto:
+   * Refinamiento del alcance y visión del producto, identificando las funcionalidades clave (gestión de competencias/rúbricas, evaluación estudiantil, panel de control, integraciones).
+   * Consolidación del equipo multidisciplinario y contrapartes por la UFST.
+   * Consolidación de la arquitectura técnica para la plataforma en la nube.
+   * Confirmación del backlog inicial y priorización de requisitos.
+   * Planificación de alto nivel con hitos principales – release planning.
+   * Identificación temprana de riesgos relacionados con las integraciones con SIGA y Moodle, etc.
+Fase de Construction (Construcción)
+En esta fase central se desarrolla la solución siguiendo iteraciones regulares: 
+   * Habilitación de infraestructura de staging y test.[e][f]
+   * Desarrollo incremental de los módulos (comenzando por los componentes fundamentales).
+   * Iteraciones cortas (1-2 semanas) con demostraciones frecuentes a los stakeholders de la UFST.
+   * Implementación progresiva de las integraciones con sistemas institucionales.
+   * Refinamiento continuo del backlog según la retroalimentación.
+   * Pruebas técnicas continuas para asegurar la calidad.
+   * Adaptación basada en los aprendizajes y cambios en las necesidades.
+
+
+Fase de Transition (Transición)
+En la fase final se prepara y entrega la solución "llave en mano", por medio de una transferencia tecnológica al equipo técnico de la UFST. Esto incluye:
+   * Código fuente versionado en GitLab institucional.  
+   * Instalación controlada en entorno de producción parte de la infraestructura de la UFST y configuración del sistema en la infraestructura de la UFST.
+   * Migración de datos y pruebas de integración. 
+   * Validaciones funcionales y pruebas de carga con equipo usuario del sistema. Pruebas de integridad y validación de integraciones.
+   * Preparación y entrega de la documentación técnica y de usuario.
+   * Implementación de la capacitación a administradores y algunos usuarios finales.
+   * Retrospectiva del proyecto y documentación de lecciones aprendidas.
+Con esta fase se da inicio al soporte post-implementación. 
+Este enfoque híbrido permite combinar la estructura necesaria para una entrega predecible con la flexibilidad para adaptarse a los cambios durante el desarrollo, asegurando que la plataforma web cumpla con los requisitos técnicos y funcionales establecidos.   
+
+
+   2. Implementación[g]
+La implementación del sistema se desarrollará bajo la modalidad “llave en mano”, asegurando la entrega de una solución completamente funcional, validada y lista para operar en la infraestructura institucional de la UFTS. Este proceso contempla las siguientes etapas clave:
+   *  Instalación y configuración en la infraestructura de la UFST: El sistema será desplegado en el entorno definido por la UFST (on-premise o en la nube), cumpliendo con las políticas de seguridad, acceso y operación definidas por el equipo TI institucional. El despliegue se realizará mediante contenedores Docker y orquestación con Kubernetes u OpenShift, asegurando un entorno escalable y resiliente.
+   * Migración de datos iniciales y pruebas de integración: Se realizará la carga de datos relevantes entregados por la UFST, como información de estudiantes, asignaturas, períodos académicos y otros registros relevantes. Esta etapa incluye pruebas de integración con los sistemas institucionales que expongan servicios, tales como SIGA y Microsoft EntraID. 
+   * Validaciones funcionales y pruebas de carga: En conjunto con el equipo usuario, se realizarán sesiones de validación funcional para verificar el comportamiento esperado del sistema frente a distintos perfiles y escenarios operativos. Además, se ejecutarán pruebas de carga que aseguren el rendimiento bajo volúmenes representativos de uso.
+   * Validaciones de modelo de datos: El equipo técnico validará la integridad del modelo de datos, incluyendo relaciones, restricciones, claves foráneas y consistencia entre entidades, asegurando que el sistema respete las estructuras definidas y sea compatible con la analítica institucional.
+   * Documentación completa: Se entregará documentación técnica y funcional conforme a los estándares institucionales. Esta incluirá: manuales de usuario por perfil, diagramas de arquitectura, procedimientos de despliegue, respaldos y recuperación, así como detalles de integración con sistemas externos.
+   * Código fuente en GitLab institucional: Todo el código fuente será entregado versionado en el GitLab institucional, incluyendo los scripts de infraestructura, documentación y configuraciones necesarias para asegurar la continuidad operativa del sistema.
+   
+   3. Factores clave en la implementación [h][i]
+La UFST deberá garantizar la disponibilidad y participación activa del equipo técnico en lo siguiente:
+   * Facilitar la integración a los sistemas SIGA y Moodle. Si bien para Moodle (versión 4.1.18) se declara la disponibilidad de un método de integración utilizando API REST, para SIGA no existen desarrollos de APIs específicas
+   * Facilitar la transferencia tecnológica, participando activamente en las sesiones de capacitación y explicación de la operación de los diferentes componentes.  
+Las sesiones necesarias se realizarán en modalidad remota.
+   2. Garantías y Soporte post-implementación
+   1. Política de [j]Garantías
+GUX ofrece una política de garantía y soporte post-implementación que asegura la continuidad operativa del sistema y acompaña a la UFST en su adopción, sin comprometer la claridad de responsabilidades ni extender alcances que deben ser tratados como mantención evolutiva.
+Garantía Técnica
+Durante los primeros 6 meses posteriores a la aceptación formal del sistema, se ofrece una garantía técnica que cubre:
+   * Corrección sin costo de errores funcionales, bugs o defectos atribuibles directamente al código fuente entregado por GUX.
+   * Corrección de errores de configuración en los entornos implementados por el equipo GUX.
+   * Revisión y ajuste de integraciones con sistemas institucionales (SIGA, Moodle, EntraID) en caso de incompatibilidades causadas por cambios de interfase no anticipados, siempre que no requieran reingeniería funcional.
+   * Actualización de la documentación técnica cuando se aplique alguna corrección relevante.
+Esta garantía no cubre:
+   * Errores causados por intervención de personas ajenas a GUX en el código, la base de datos o la infraestructura.
+   * Cambios estructurales en los sistemas integrados que alteren su funcionamiento sin previo aviso.
+   * Requerimientos nuevos o ampliación del alcance funcional original.
+   * Actividades de mantenimiento preventivo o evolutivo.
+Soporte acompañado
+De forma paralela a la garantía, se ofrece un servicio de soporte no garantizado, orientado a facilitar la adopción institucional del sistema:
+   * Resolución de consultas operativas y funcionales para usuarios autorizados.
+   * Acompañamiento en el monitoreo de integraciones y flujos críticos.
+   * Aplicación de ajustes menores de configuración si se detectan oportunidades de mejora que no impliquen rediseño.
+   * Participación en reuniones técnicas mensuales para asegurar continuidad y transferencia de conocimiento al equipo interno de la UTFSM.
+Este soporte será prestado de forma remota, sin costo adicional, como parte del compromiso de GUX con la calidad y sostenibilidad del proyecto.
+
+
+   2. Política de Soporte Post-implementación y Asistencia
+Una vez finalizada la etapa de implementación y entregado el sistema en ambiente de producción, se activará el soporte técnico post-implementación. Este servicio tiene por objetivo mantener la estabilidad operativa del sistema, resolver incidencias según su criticidad e impulsar una adopción efectiva por parte del equipo institucional.
+Clasificación de solicitudes
+Para garantizar una atención proporcional al impacto de cada incidencia, se clasificarán todas las solicitudes en tres niveles de criticidad, definidos por su efecto en la operación del sistema, la experiencia de los usuarios y la continuidad de los procesos institucionales.
+Esta clasificación permite priorizar recursos técnicos y establecer tiempos de respuesta realistas según la urgencia y severidad del incidente.
+Nivel 1: Incidencia Crítica
+Definición: Corresponde a incidentes que afectan directamente la continuidad operativa del sistema o comprometen la integridad de la información. Requieren atención inmediata para restablecer el servicio y mitigar riesgos operacionales o reputacionales.
+Incluye:
+   * Caída completa del sistema en ambiente productivo.
+   * Imposibilidad de acceso para todos los usuarios al entorno de producción.
+   * Pérdida de información sensible o inconsistencia de datos.
+   * Brechas de seguridad que puedan exponer información o permitir accesos no autorizados.
+   * Fallos graves en las integraciones con sistemas críticos (SIGA, Moodle, EntraID) que impidan el uso funcional del sistema.
+   * Cualquier otro problema que afecte total o parcialmente la disponibilidad de funcionalidades esenciales (evaluaciones, autenticación, visualización de resultados u otras a acordar).
+Nivel 2: Incidencia Media
+Definición: Se refiere a problemas que, sin detener completamente el uso del sistema, afectan su rendimiento, experiencia de usuario o funcionalidad parcial. Requieren atención programada en corto plazo, pero permiten continuidad operativa parcial.
+Incluye:
+   * Lentitud o degradación significativa del rendimiento en módulos clave.
+   * Errores en funcionalidades específicas que no bloquean el sistema completo (por ejemplo, reportes que fallan en ciertos filtros).
+   * Problemas visuales que impiden una experiencia fluida, aunque sin pérdida de datos.
+   * Interrupciones parciales en la sincronización de datos con sistemas integrados.
+   * Fallas intermitentes que afectan solo a ciertos roles o contextos específicos.
+Nivel 3: Incidencia Leve
+Definición: Comprende solicitudes que no comprometen la operatividad del sistema ni afectan funciones críticas. Generalmente se relacionan con aspectos cosméticos, mejoras menores o propuestas de optimización futura. Se priorizan de acuerdo con la disponibilidad del equipo y el roadmap acordado con la institución.
+Incluye:
+   * Problemas de compatibilidad visual con navegadores específicos.
+   * Ajustes de diseño o redacción en pantallas, etiquetas o mensajes.
+   * Sugerencias de mejoras no urgentes (como agregar filtros, cambiar colores, reorganizar secciones).
+   * Peticiones funcionales nuevas que no estaban contempladas en el alcance original.
+   * Revisión o mejora de textos o contenidos ya publicados en el sistema.
+
+
+   3. SLA Comprometido
+A continuación, se detallan los tiempos máximos de primera respuesta comprometidos para cada tipo de incidencia, considerando su nivel de criticidad. Estos tiempos corresponden al inicio del diagnóstico técnico tras la recepción del incidente y permiten al equipo institucional contar con visibilidad y trazabilidad claras del proceso de soporte:
+
+
+
+
+
+
+Nivel de incidencia
+	Tiempo máximo de diagnóstico
+	Disponibilidad del servicio
+	Tratamiento
+	Nivel 1
+(Crítico)
+	2 horas hábiles
+	24x7
+(guardia técnica remota)
+	Atención inmediata con prioridad máxima. Se suspenderán otras tareas si es necesario. Puede requerir hotfixes o recuperación de servicios.
+	Nivel 2
+(Medio)
+	8 horas hábiles
+	Lunes a viernes
+8:00–18:00 hrs.
+	Se programa resolución dentro del ciclo de soporte. Se coordina con el equipo técnico de la UFST.
+	Nivel 3
+(Leve)
+	24 horas hábiles
+	Lunes a viernes, 8:00–18:00 hrs.
+	La solicitud será registrada y su prioridad se acordará en conjunto con la UFST, considerando las necesidades y la planificación de desarrollo vigente.
+	Nota: El “tiempo de primera respuesta” corresponde al inicio del análisis técnico y al contacto con el solicitante para validar la clasificación e iniciar el diagnóstico
+Canales de Atención y Seguimiento
+   * Todas las incidencias deberán registrarse a través de un sistema de tickets provisto por GUX o por la UFST.
+   * Se habilitará un canal de comunicación directa (email, Teams, Discord o herramienta equivalente definida de común acuerdo).
+   * Cada solicitud tendrá un código de seguimiento único y visibilidad de su estado (en análisis, en progreso, resuelto, cerrado).
+Monitoreo activo
+La solución podrá complementarse con mecanismos de monitoreo proactivo, acordados en conjunto con la UFST, con el objetivo de anticipar fallas, asegurar la disponibilidad del sistema y facilitar la detección temprana de incidencias relevantes. Estas medidas podrán incluir:
+   * Revisiones automáticas de disponibilidad de los servicios principales en ambiente productivo.
+   * Alertas en tiempo real ante caídas o interrupciones de módulos críticos o integraciones externas.
+   * Verificaciones programadas del estado de integraciones, asegurando la continuidad operativa y la actualización de datos clave.
+   1. Actualizaciones y mejoras según necesidades emergentes.[k][l]
+Durante la operación del sistema, es natural que surjan nuevas necesidades institucionales, ajustes a flujos o requerimientos de funcionalidades que no estaban contemplados en el alcance original. Para dar respuesta a estos escenarios, GUX contempla dos caminos compatibles:
+   1. Contratación complementaria o implementación de un modelo de trabajo evolutivo con bolsa de horas, sujeto a acuerdo posterior.
+   2. Reprogramación del backlog original mediante un mecanismo formal de control de cambios, que permita intercambiar requerimientos aún no implementados por otros de esfuerzo equivalente.
+Ambas vías aseguran flexibilidad para adaptar el sistema a nuevas prioridades, manteniendo al mismo tiempo la trazabilidad del proyecto y la coherencia contractual.
+Mecanismo de control de cambios
+En caso de que la UFST identifique una necesidad emergente prioritaria, y su implementación represente un esfuerzo técnico equivalente al de una funcionalidad aún pendiente, será posible sustituir dicha funcionalidad original mediante un mecanismo formal de control de cambios.
+Este proceso de reemplazo debe ser consensuado entre ambas partes, documentado y validado por los equipos técnicos y funcionales, asegurando así que el alcance, los recursos y los plazos del proyecto no se vean alterados.
+Tipologías de mejoras emergentes consideradas
+   * Entre las solicitudes que podrían gestionarse bajo este modelo se incluyen:
+   * Nuevos reportes o visualizaciones de datos.
+   * Ajustes a procesos funcionales por cambios normativos o institucionales.
+   * Extensiones a las integraciones existentes.
+   * Cambios en reglas de negocio, cálculos o flujos de evaluación.
+   * Mejoras a la interfaz para adaptarse a perfiles no contemplados inicialmente.
+   * Modelo evolutivo complementario
+En caso de que las mejoras excedan el alcance o esfuerzo originalmente comprometido, podrán ser gestionadas a través de una contratación complementaria o un modelo de bolsa de horas, que permita dar continuidad al desarrollo evolutivo del sistema de forma ágil, escalable y controlada.
+GUX cuenta con vasta experiencia en esquemas de evolución continua y puede acompañar a la UFST en una relación de mejora sostenida, bajo modelos de gobernanza acordados.
+Buenas prácticas y garantías asociadas
+Todas las mejoras, ya sea que se gestionen por control de cambios o contratación complementaria, serán desarrolladas bajo estándares de calidad equivalentes a los de la implementación original, e incluirán:
+   * Documentación funcional y técnica actualizada.
+   * Validación con usuarios clave en entorno de QA.
+   * Promoción controlada a producción.
+   * Registro completo en changelog institucional.
+
+
+   3. Plan de Capacitación 
+   1. Plan de Capacitación y Transferencia Tecnológica
+El proceso de adopción de la plataforma contempla una estrategia integral que asegura el uso autónomo y efectivo del sistema por parte de los distintos perfiles institucionales, así como una transferencia tecnológica robusta al equipo TI de la UFST.
+Este plan combina sesiones sincrónicas, materiales asincrónicos y acompañamiento post-implementación, permitiendo cubrir las necesidades funcionales y técnicas tanto en la operación diaria como en la evolución futura del sistema.
+Objetivos
+   * Asegurar una apropiación efectiva del sistema por parte de todos los perfiles de usuarios.
+   * Transferir conocimiento técnico clave al equipo TI para una administración autónoma posterior.
+   * Proveer recursos de autoaprendizaje reutilizables para futuras capacitaciones o refuerzos.
+   * Acompañar al equipo institucional en las primeras semanas de uso real del sistema.
+
+
+Perfiles a capacitar
+   * Equipo TI: administración del sistema, integraciones, seguridad, monitoreo.
+   * Administradores funcionales: configuración, gestión de rúbricas, usuarios y ciclos de evaluación.
+   * Académicos evaluadores: registro y consulta de evaluaciones.
+   * Coordinadores y jefes de carrera: seguimiento de resultados, reportería y análisis de datos.
+Acompañamiento post-capacitación
+Durante las primeras 4 semanas de operación productiva se entregará un período de acompañamiento supervisado, que incluye:
+   * Soporte “lado a lado” al equipo técnico durante las primeras operaciones de mantenimiento (remoto).
+   * Resolución de dudas funcionales de usuarios clave.
+   * Sesiones breves de seguimiento para validar configuraciones, flujos y reportes.
+   * Apoyo en la elaboración de los primeros informes institucionales.
+Duración estimada
+   * Capacitación funcional: 6 horas distribuidas en 2 a 3 sesiones según perfil.
+   * Capacitación técnica (TI): 6 a 8 horas distribuidas en sesiones especializadas.
+   * Acompañamiento supervisado: 4 semanas posteriores a la puesta en marcha.
+   * Acceso permanente a materiales asincrónicos.
+
+
+   2.  Metodología del plan de capacitaciones
+La estrategia de formación propuesta se basa en un enfoque blended learning, combinando sesiones sincrónicas en vivo, materiales asincrónicos de autoaprendizaje y recursos prácticos reutilizables. Esta metodología permite una adopción escalable, flexible y efectiva del sistema, asegurando que cada perfil institucional reciba los contenidos y formatos más adecuados para su rol y nivel de interacción con la plataforma.
+La formación se estructurará según las siguientes premisas pedagógicas:
+   * Personalización según rol: Los contenidos, formatos y niveles de profundidad se adaptan al tipo de usuario: desde usuarios finales con interacción puntual, hasta el equipo TI con responsabilidades de administración y evolución técnica del sistema.
+   * Práctica guiada y autonomía: Las sesiones sincrónicas priorizan el trabajo práctico y la resolución de dudas, mientras que los recursos asincrónicos permiten reforzar conocimientos y mantener acceso constante a guías actualizadas.
+   * Enfoque en la usabilidad y autonomía progresiva: Se considera que el diseño de la plataforma debe facilitar su adopción natural. La capacitación busca reforzar esa experiencia con materiales claros, accesibles y reutilizables.
+   * Sustentabilidad futura: El plan entrega a la institución no solo conocimientos, sino también herramientas para replicar internamente futuras capacitaciones o refuerzos, sin depender del equipo desarrollador.
+   * Para los estudiantes (usuarios finales), se ha optado por un enfoque 100% asincrónico, con cápsulas breves, manuales simplificados y navegación guiada, lo que garantiza una experiencia accesible, intuitiva y de bajo esfuerzo cognitivo.
+
+
+Contenidos formativos por perfil
+A continuación, se presenta una tabla detallada de los contenidos, perfiles destinatarios y el formato de entrega correspondiente:
+Tema / Contenido
+	Perfiles destinatarios
+	Formato de entrega
+	Introducción General al Sistema
+	Administradores, académicos, equipo TI
+	   * Cápsula breve en video.
+   * Sesión sincrónica de presentación.
+	Navegación y uso Básico
+	Académicos, coordinadores, estudiantes
+	   * Manual general.
+   * CÁPSULAS de autoaprendizaje.
+	Registro y Revisión de Evaluaciones
+	Académicos evaluadores
+	   * Taller funcional sincrónico.
+   * GUÍA rápida.
+   * Video demostrativo.
+	Gestión de Rúbricas y Ciclos Evaluativos
+	Administradores funcionales
+	   * Taller práctico.
+   * Manual de configuración.
+   * Cápsula explicativa.
+	Gestión de Usuarios y Roles
+	Administradores funcionales, equipo TI
+	   * Sesión sincrónica.
+   * Documentación funcional.
+	Reportería y Análisis de Resultados
+	Coordinadores de competencias, jefes de carrera
+	   * Taller funcional.
+   * Ejercicios prácticos.
+   * Guía de indicadores.
+	Arquitectura del Sistema y Despliegue
+	Equipo TI
+	   * Capacitación técnica sincrónica.
+   * Documentación técnica detallada.
+	Respaldos, Recuperación y Monitoreo
+	Equipo TI
+	   * Taller técnico.
+   * Protocolos documentados.
+	Seguridad y Control de Accesos
+	Equipo TI, administradores
+	   * Capacitación técnica.
+   * Procedimientos de configuración.
+	Integraciones (SIGA, Moodle, EntraID)
+	Equipo TI
+	   * Taller técnico.
+   * Diagramas de integración.
+   * Guías de endpoints.
+	
+
+________________
+
+
+Materiales entregables
+
+
+Como parte del proceso de capacitación y transferencia tecnológica, se entregarán materiales diseñados para facilitar el aprendizaje, el uso autónomo y el soporte continuo del sistema. Estos recursos estarán organizados por perfil y disponibles en formato digital reutilizable.
+Los materiales incluyen:
+   * Manuales de usuario diferenciados por perfil: Documentos en formato PDF que describen, paso a paso y con capturas de pantalla, el uso de las funcionalidades más relevantes para cada tipo de usuario: administradores funcionales, académicos evaluadores, coordinadores y equipo TI.
+   * Cápsulas de video por funcionalidad clave (2 a 5 minutos): Videos breves que explican tareas específicas del sistema, como el uso de rúbricas, registro de evaluaciones, generación de reportes, etc. Están diseñadas en lenguaje claro, con subtítulos, grabaciones reales de la interfaz y compatibilidad con dispositivos móviles.
+   * Documentación técnica estructurada: Se entregará un paquete completo con información técnica del sistema, que incluye: arquitectura e infraestructura, procedimientos de respaldos y recuperación ante fallos, configuración de seguridad, y documentación de integraciones (SIGA, Moodle, EntraID). Esta documentación será validada junto al equipo TI durante las sesiones técnicas.
+   * Entorno de prueba (sandbox): Espacio seguro para que administradores y equipo técnico puedan practicar configuraciones y flujos funcionales sin comprometer el ambiente productivo. Este entorno estará disponible durante al menos 30 días posteriores a la implementación del sistema.
+   * Preguntas frecuentes (FAQ): Documento que recoge dudas comunes por perfil de usuario, con respuestas claras y estructuradas para facilitar la consulta autónoma. Incluye temas funcionales, técnicos y administrativos, y se actualiza según necesidades detectadas durante las primeras semanas de uso.
+   * Materiales autoformativos para estudiantes: Cápsulas breves que explican cómo navegar en el sistema y visualizar resultados personales, junto con una guía de usuario simplificada y enfocada en su rol. Estos materiales estarán disponibles exclusivamente en formato asincrónico.
+
+
+________________
+
+
+   6. ROADMAP DE IMPLEMENTACIÓN
+   1. Plan de Implementación 
+Etapa 1 – Inception
+Duración estimada: 1 mes.
+Actividades: Definición de requerimientos, análisis preliminar del problema, identificación de actores y elaboración del plan de trabajo.
+Participación del Cliente: Se realizan reuniones de arranque para definir objetivos, validar requerimientos y establecer expectativas. Una reunión de coordinación semanal y hasta 4 reuniones de trabajo semanales con diferentes stakeholders.
+Resultado: Documento de especificación detallado y roadmap del proyecto.
+
+
+Etapa 2 – Construction 
+Duración estimada: 3 meses / Inception[m]
+Actividades: Desarrollo iterativo-incremental de los módulos, comenzando por los componentes fundamentales e integraciones críticos y refinamiento de las características funcionales.
+Participación del Cliente: Revisión semanal de los avances (sprint review) y posibles sesiones de refinamiento de aspectos funcionales y trabajo sobre elementos de integración.
+Resultado: Versiones funcionales incrementales de la plataforma, incluyendo la integración a los sistemas. El resultado final es la plataforma con alcance completo. 
+
+
+Etapa 3 – Transition 
+Duración estimada: 1 mes.[n]
+Actividades: Pruebas finales, transferencia tecnológica incluyendo capacitación de personal técnico, despliegue en producción y activación de plan de soporte.
+Participación del Cliente: Se realizan entre 3 y 6 sesiones de trabajo semanales enfocadas en el traspaso de la tecnología y el acompañamiento supervisado.
+Resultado: Solución operativa en ambiente de la UFST, incluyendo la documentación y elementos de apoyo a usuarios definidos durante el refinamiento del proyecto.
+
+
+
+
+
+
+
+
+   2. Carta Gantt [o][p]
+A continuación, se detallan actividades a realizar durante la implementación con su calendario respectivo.
+
+
+  
+
+
+
+Figura 2. Carta Gantt 
+________________
+   7. ORGANIZACIÓN DEL PROYECTO
+   1. Equipo de Trabajo 
+El proyecto será ejecutado por un equipo interdisciplinario con experiencia comprobada en proyectos de desarrollo de plataformas tecnológicas para instituciones de educación superior. Cada rol cuenta con responsabilidades claramente definidas y trabajará de manera coordinada para cumplir los plazos y objetivos establecidos.
+Rol
+	Responsabilidades principales
+	Project Manager (PM)
+	   * Responsable de la planificación, coordinación y control del proyecto. Interacción directa con el equipo de la UFST. 
+   * Gestiona riesgos, tiempos, entregables y comunicaciones.
+	Tech Lead / Arquitecto
+	   * Define la arquitectura del sistema, estándares técnicos y lineamientos de integración. 
+   * Supervisa la calidad técnica del desarrollo.
+	Front-End Developer
+	   * Desarrolla la interfaz de usuario según los principios de usabilidad, accesibilidad y diseño responsive. 
+   * Integra servicios con APIs.
+	Back-End Developer
+	   * Desarrolla la lógica de negocio, APIs RESTful y control de flujos de datos. Gestiona la seguridad y rendimiento del sistema.
+	UX/UI Designer
+	   * Diseña la experiencia y la interfaz de usuario, para que sea intuitiva e inclusiva. 
+   * Facilita prototipos interactivos y validaciones tempranas.
+	QA / Tester Funcional
+	   * Diseña y ejecuta pruebas automatizadas y manuales. 
+   * Garantiza la calidad y estabilidad de las funcionalidades.
+	DevSecOps / Especialista en Infraestructura
+	   * Gestiona los entornos en la nube, automatiza despliegues, configura monitoreo y aplica políticas de seguridad.
+	Analista Funcional
+	   * Levanta requerimientos, gestiona el backlog y vela por la coherencia funcional del producto con los objetivos del proyecto.
+	Todos los profesionales asignados al proyecto cuentan con experiencia en proyectos similares y en el desarrollo de sistemas críticos con altos estándares de calidad y seguridad.
+
+
+   2. Organización y coordinación
+La ejecución del proyecto se basa en una organización ágil y colaborativa, que combina una célula de trabajo interdisciplinaria con prácticas de coordinación continua junto al equipo institucional de la UFST. Esta estructura permite abordar de forma integral todas las dimensiones del desarrollo —funcional, técnica, operativa y de experiencia de usuario— y garantiza una comunicación fluida, visibilidad del avance y capacidad de adaptación durante todo el ciclo de vida del proyecto.
+
+
+El equipo se organiza en una célula ágil compuesta por los perfiles clave para cubrir el ciclo completo de diseño, desarrollo, aseguramiento de calidad e implementación del sistema. Esta célula puede escalarse o adaptarse según los requerimientos específicos del proyecto y las fases en curso.
+El modelo de trabajo, utilizado por GUX, toma como base marcos de referencia como Scrum y Disciplined Agile Delivery, permitiendo iterar sobre funcionalidades priorizadas, entregar versiones utilizables del sistema durante el desarrollo y realizar ajustes tempranos con base en la retroalimentación institucional.
+Prácticas colaborativas y de gobernanza
+Durante la ejecución del proyecto se implementarán dinámicas regulares que aseguran alineación continua, trazabilidad de decisiones y mejora progresiva:
+   * Planificación de sprint
+Reunión quincenal donde se definen tareas, objetivos y estimaciones junto al Product Owner o contraparte institucional. Se priorizan entregables de valor funcional para la UFST.
+   * Reuniones de seguimiento semanales
+Espacios de coordinación para revisar el avance, resolver bloqueos y realizar ajustes tácticos. Se documentan acuerdos y se actualiza el estado de avance.
+   * Demos funcionales
+Al cierre de cada sprint, se presenta un incremento funcional del sistema en un entorno QA, permitiendo su validación por parte de los usuarios clave.
+   * Retrospectivas internas
+Instancia periódica del equipo técnico para revisar la calidad del trabajo realizado, identificar aprendizajes y proponer mejoras en la forma de colaboración.
+Herramientas de soporte al proceso
+      * Gestión de tareas y seguimiento: el proyecto se gestionará en herramientas como Jira o Trello, con visibilidad compartida para los actores institucionales.
+      * Comunicación asincrónica y reuniones remotas: se utilizarán canales definidos en conjunto, como Microsoft Teams, Slack o similares, para asegurar fluidez y trazabilidad en la coordinación diaria.
+      * Control de versiones y despliegues: el código fuente se gestionará en Gitlab bajo buenas prácticas de integración continua, revisión colaborativa y automatización de despliegues.
+      * Documentación colaborativa: los entregables funcionales y técnicos se documentarán de forma estructurada, accesible para el equipo institucional y versionada durante todo el proceso.
+
+
+
+
+________________
+
+
+      8. METODOLOGÍA DE TRABAJO 
+Durante la toma del servicio se seguirán distintos pasos que buscan garantizar la correcta implementación del servicio en corto plazo y con el menor esfuerzo posible.
+La Fase I será implementada con la siguiente metodología:
+      1. Entendimiento inicial del proceso: Esta etapa contempla la revisión y análisis de la documentación institucional disponible, la realización de reuniones de levantamiento de información con las áreas clave de la UFST, y el dimensionamiento del esfuerzo técnico y funcional requerido para la implementación de la solución, considerando las particularidades operativas y académicas de la UTFSM.
+      2. Conformación del equipo de trabajo: Selección de personal clave, solicitar los accesos a los sistemas de la UFST, capacitación sobre el uso de los sistemas y los procedimientos internos.
+En la Fase II, el enfoque de implementación estará enfocado en implementación del desarrollo. Se basará en Disciplined Agile[1], del Project Management Institute, definiendo 3 grandes fases:
+      1. Inception: El objetivo de esta fase es lograr un acuerdo entre el equipo de proyecto y los principales interesados acerca de la Justificación, Objetivos, Criterios de éxito, Alcances, Restricciones y expectativas del proyecto. Ello se realiza a través de una actividad denominada “Taller de Inception”, que es un taller facilitado por GUX, en la cual participan los principales interesados y se llega a definir los aspectos indicados, documentándolos en un lienzo Canvas. En un taller posterior se identifican y priorizan las actividades, generando una lista priorizada de requerimientos. Estos requerimientos se agrupan en Incrementos mínimos de negocio, esto es unidades mínimas que pueden ser implementados, lo que da origen a la definición de Releases o entregas. En este caso particular, este taller de Inception tiene como objetivo alinear la visión de los dueños y expertos del negocio con los indicadores de desempeño esperados del proceso y el descubrimiento de las actividades clave y su potencial de automatización.
+      2. Construction: La construcción de cada Release se realiza utilizando un modelo iterativo, basado en SCRUM. Los requerimientos se subdividen en unidades de trabajo pequeñas. El trabajo se organiza en sprints de dos semanas de duración. Al comienzo de cada SPRINT se hace la Planificación en la cual el equipo evalúa cuanto trabajo puede llevar a cabo en ese período. Durante el Sprint el equipo tiene reuniones diarias en que se analiza el avance y los problemas que se puedan estar enfrentando, buscando resolverlos en forma colaborativa. Al finalizar el Sprint se hace una revisión del producto, para verificar el cumplimiento de los objetivos del Sprint. 
+
+
+Finalmente se hace una Retrospectiva en que el equipo detecta oportunidades de mejoramiento en su forma de trabajar.
+      3. Transition: Terminado el desarrollo de un Release es el conjunto de actividades necesarias para iniciar la operación del producto: puesta en producción, capacitación de usuarios, adecuación de procesos, marcha blanca, etc. 
+ Captura de pantalla de un celular
+
+El contenido generado por IA puede ser incorrecto. 
+
+Figura 3. Esquema de Desarrollo Ágil basado en Disciplined Agile del PMI (fuente propia)
+
+
+________________
+
+
+      9. FACTORES CLAVES PARA EL ÉXITO EN LA IMPLEMENTACIÓN 
+      1. Coordinación y ejecución de entrevistas y focus groups
+      * La UFST deberá garantizar la disponibilidad y participación de los convocados en cada sesión, ya que la calidad del levantamiento de información es clave para el éxito del diagnóstico y diseño de la solución.
+      * Se podrán coordinar sesiones tanto presenciales como remotas. Todas las entrevistas y focus groups se llevarán a cabo asegurando cobertura nacional sin afectar la operatividad de la UFST.
+      2. Requerimientos para la implementación 
+      * Las APIs deberán estar disponibles dentro de los plazos definidos para la etapa de levantamiento (entendimiento del proceso).
+      * Las APIs deben incluir documentación clara, ambientes de prueba, autenticación segura y definición de endpoints completos desde etapas tempranas de la Fase I.
+      * Se debe contar con ambientes estable para ambientes de QA y producción desde etapas tempranas de la Fase I.
+      * Cualquier modificación al alcance general descrito en este documento, significará un control de cambios y este deberá ser valorizado.
+      * La UFST deberá garantizar la dedicación de los colaboradores clave, quienes deberán participar activamente en la validación y ejecución de la solución provista.
+      * En caso de que la implementación requiera licencias de software, hardware especializado o insumos específicos, será responsabilidad de la UFST gestionar su adquisición y provisión.
+      3. Planificación con disponibilidad de recursos
+      * La ejecución del plan de trabajo estará sujeta a la disponibilidad de los participantes de la UFST y a que se proporcione la información necesaria para levantar cada etapa del proyecto.
+      * Cualquier ajuste en la planificación deberá coordinarse con antelación para mitigar riesgos y asegurar el cumplimiento de los hitos definidos.
+      * La UFST proveerá de los accesos a sus oficinas y a su red, para poder cumplir con los objetivos del servicio.
+      4. Cumplimiento normativo y alineación con regulaciones vigentes
+La solución propuesta cumple y se alinea con las normativas legales vigentes en Chile y con los estándares técnicos e institucionales exigidos por la UTFSM, asegurando una implementación segura, transparente, accesible. Se consideran los siguientes marcos normativos y de buenas prácticas:
+      * Políticas y Manual vigentes de la UFST, asegurando el cumplimiento de procedimientos internos.
+      * Ley N° 19.628 sobre Protección de la Vida Privada
+      * Ley N° 21.180 sobre Transformación Digital del Estado
+      * Ley de Accesibilidad Universal (Ley N° 20.422)
+      * Buenas prácticas de ciberseguridad e infraestructura crítica
+      * Basadas en el marco de ISO/IEC 27001, aplicando principios de control de acceso, gestión de incidentes, respaldo, continuidad operativa (BCP/DRP) y encriptación de datos.
+      * Políticas de seguridad informática y tecnológica institucional.
+      * Requisitos de autenticación unificada mediante Microsoft EntraID.
+      * Políticas de retención de información académica y confidencial.
+________________
+
+
+      10. PRESENTACIÓN DE LA EMPRESA 
+      1. Antecedentes del Proponente 
+GUX se encuentra especializado en desarrollo de productos digitales, con presencia en Latinoamérica y Europa, con más de 20 años de experiencia, comprometido y focalizado en colaborar con los clientes, para que cumplan con sus objetivos de negocios, a través de un proceso co-creativo, utilizando el expertise en ingeniería, tecnología, procesos e innovación con metodologías comprobadas y de última generación. Se tiene la firme convicción en la entrega de valor continuo al cliente, en el trabajo en equipo, la colaboración, en entender y adaptarse a las necesidades del entorno, a fin de implementar soluciones prácticas para los clientes.  
+GUX cuenta con los siguientes servicios: creación y desarrollo de productos digitales e Inteligencia Artificial (Software a la medida, Hiperautomatización, Diseño UX/UI, Ciberseguridad, IA, IoT). 
+Como valor agregado se ofrece:
+      1. Equipo de especialistas que aseguran la calidad del servicio: Se cuenta con un equipo de profesionales altamente capacitados y con vasta experiencia en transformaciones empresariales, brindando el soporte necesario para impulsar con éxito esta ambiciosa y desafiante iniciativa. El enfoque utilizado combina conocimiento técnico y visión estratégica, asegurando una implementación eficaz que genere resultados sostenibles y valor a largo plazo. 
+      2. Enfoque ágil para construir productos digitales innovadores, desde la idea hasta la implementación. Los productos desarrollados automatizan y hacen más eficientes los diversos procesos. Estrategia y tecnología con enfoque en UX.
+      3. Se utilizan lenguajes y frameworks modernos. Se posee gran expertise en herramientas de backoffice para instituciones educativas. Se construye con datos y se usan herramientas de analítica avanzada para entender su comportamiento y mejorar continuamente los sistemas. Esto incluye, pero no se remite a: stack tecnológico basado en Python, modelos de automatización también implementados con base Python.
+      4. Se cuenta con un Laboratorio y Centro de I+D+i pionero en Chile en el desarrollo de inteligencia artificial y tecnología cognitiva, además el Equipo de IA posee gran experiencia y trayectoria.
+      5. Conocimiento del mercado financiero: Para la realización de los servicios realizados se cuenta con la categoría de Proveedor crítico, en base a normativa de la CMF, normativa de ciberseguridad, PCI y Ley 21.663.
+      6. Expertise en diversas industrias: La presencia en diversos países, permite tener clientes en todo LATAM, en diferentes sectores industriales. Por lo que se cuenta con un equipo multidisciplinario de profesionales con reconocida experiencia en diversas disciplinas.
+      7. GUX tiene un convenio de colaboración exclusiva con el CENIA (Centro Nacional de Inteligencia Artificial). Lo que permite contar con el equipo más completo y capacitado para investigación, desarrollo e implementación de tecnología y productos de IA en Chile.
+      2. Antecedentes Generales de la Empresa 
+      1. GUX Tech
+      * Razón social: GUX Spa
+      * RUT: 76.917.537-7
+      * Dirección comercial: Av. Bosque Norte 226, Oficina 402, Las Condes, Santiago 
+      * Nombre y RUT del representante legal: Pablo José González Rogers RUT: 17.082.850-K
+      * Nombre, Teléfono fijo y móvil e Email del representante ante la propuesta: Paulina Mota, +569 96428222, paulina.mota@cl.proyectum.com
+
+
+________________
+
+
+      3. Experiencia en el Mercado  
+Cliente
+	Servicio
+	  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+  
+
+
+
+  
+
+
+
+	Más de 4 años apoyando a Copec en sus proyectos corporativos, asi como a sus distintas filiales y empresas relacionadas en:
+      * Desarrollo de aplicación que permite a las estaciones de servicio (EDS) ofrecer sus servicios a domicilio.
+      * Desarrollo de marketplace que permite a los clientes, a través de geolocalización, visualizar al instante con qué servicios de la EDS puede contar a domicilio.
+      * Sistema de backoffice para la gestión de pedidos.
+      * Apoyo integral e Implementación de tecnología para UX y Growth.
+      * Diseño y desarrollo de soluciones tecnológicas, como cotizadores inteligentes, onboardings digitales.
+      * Integraciones y automatizaciones de procesos.
+      * Soporte y mejora continua de plataformas digitales.
+      * Apoyo integral en proyectos tecnológicos: Tomas de control y acompañamiento técnico a las empresas que adquieren desde WIND ventures en Sillicon Valley.
+      * Apoyo integral en proyectos tecnológicos: Mantenimiento y Automatización del flujo de ventas, desde la integración del CRM con otros sistemas hasta la creación de un cotizador inteligente. 
+      * Integración de omnicanalidad integrando procesos automatizados con Whatsapp y mailing.
+
+
+	  
+
+	      * Diseño y desarrollo de aplicación móvil nativa para capacitar a repartidores y telefonistas de Abastible a través de videos y gamification, con el objetivo de estandarizar el servicio a los clientes. 
+      * Desarrollo de backoffice de administración para las distribuidoras, habilitando varias herramientas para mejorar y profesionalizar su gestión.
+	 logo-clínica-santa-maría - Epicentro Chile 
+
+	Objetivo:
+Reducir significativamente el trabajo manual en la conciliación de documentos tributarios y órdenes de pago con profesionales de la salud (médicos, enfermeros, entre otros).
+Alcance:
+Hiperautomatización de procesos administrativos mediante inteligencia artificial, con integración al ecosistema tributario y contable de la clínica.
+Descripción:
+Desarrollo de un sistema de automatización inteligente que gestiona la descarga, interpretación y conciliación de documentos tributarios, cruzándolos con contratos y órdenes de pago. El sistema incluye robots conectados al SII que emiten boletas delegadas a nombre de los profesionales, validan montos y vigencias, y observan automáticamente aquellas boletas que deben ser anuladas.
+Logros asociados:
+      * 100% de disminución en errores de conciliación tributaria.
+      * Más de 90% de reducción en tiempos administrativos.
+      * Procesamiento mensual de más de 3.000 DTEs, con una tasa de conciliación exitosa del 98%.
+Duración del Servicio
+Desde fines del 2020 a la fecha.
+	  
+
+	Objetivo: 
+Eliminar tareas manuales en la conciliación de boletas de honorarios y contratos de profesionales (profesores, ayudantes y personal administrativo).
+Alcance:
+Hiperautomatización integral de procesos administrativos mediante inteligencia artificial.
+Descripción:
+Implementación de un sistema basado en IA que automatiza desde la generación de contratos semestrales hasta la emisión y calce de boletas de honorarios. La solución incluye robots integrados con el SII para emitir boletas en nombre de los profesionales, cuadratura automática de montos con los contratos y control proactivo de la vigencia y cierre de contratos. Además, gestiona la anulación automática de boletas rechazadas directamente en el SII.
+Logros asociados:
+      * Eliminación total de errores en la emisión de boletas.
+      * Más de 90% de reducción en tiempos de conciliación administrativa.
+      * Procesamiento mensual de más de 5.000 boletas, con un 95% de éxito en conciliación.
+Duración del Servicio
+Desde fines de 2018 a la fecha.
+	  
+
+	Objetivo:
+Optimizar la gestión de garantías mediante la identificación automática de transferencias bancarias realizadas por clientes interesados en participar en remates.
+Alcance:
+Implementación de un servicio de hiperautomatización para identificar y conciliar transferencias y garantías, integradas con SAP Business One.
+Descripción:
+Basándose en la plataforma de Hiperautomatización SimonVe (propia), se habilita servicio de revisión automática de transferencias bancarias, las cruza con las garantías registradas por clientes, y actualiza el estado contable correspondiente en el ERP. Este proceso asegura un registro confiable y en tiempo real dentro de SAP Business One.
+Logros asociados:
+      * Gestión de garantías reducida de horas a minutos.
+      * Participación ágil de clientes en remates.
+      * Conciliación automática y actualización contable de pasivos.
+      * Integración directa con SAP.
+Duración del Servicio:
+Desde el primer trimestre de 2020 a la fecha.
+	  
+
+	Objetivo:
+Reducir el trabajo manual en la conciliación de boletas de honorarios con contratos de profesionales como profesores, ayudantes y personal administrativo.
+Alcance:
+Servicio de hiperautomatización para conciliación de documentos tributarios y contratos.
+Descripción:
+Desarrollo de un sistema que automatiza la recolección de boletas electrónicas desde el SII, conciliándolas con los contratos correspondientes. El sistema interpreta cláusulas de pago, compara montos, glosas y condiciones contractuales, y permite emitir boletas de terceros de forma automática. Además, gestiona de manera autónoma la observación (anulación) de boletas rechazadas directamente en el SII.
+Logros asociados:
+      * Reducción del 97% en tiempo de conciliación.
+      * Trazabilidad completa en pagos y documentación.
+      * Más de 30.000 boletas gestionadas mensualmente.
+      * Tasa de conciliación exitosa del 95%.
+      * Gestión de excepciones con aprendizaje automático (machine learning).
+Duración del Servicio
+Desde fines de 2023 a la fecha.
+	  
+
+	Migración y modernización de Core Financiero Legacy:
+      * El sistema principal de la empresa estaba desarrollado con Visual Basic 6, se modernizo y fue migrarlo a la nube. 
+Logros asociados: 
+      * Reducción de tiempo para la creación de un nuevo producto en un 95%.
+      * Reducción de tiempo de aprobación de líneas en un 90%.
+      * Uptime de 99,99% del Core (aumento de un 20%).
+      * Aumento de velocidad del sistema core en un 70%, lo que permite generar reportes en la mitad de tiempo.
+      * Reducción de un 50% en los costos en infraestructura. 
+      * Mejoras en ciberseguridad con estándares mundiales.
+      * Colaboradores pueden trabajar con el core de forma remota.
+	  
+
+	Desarrollo de Plataforma para clientes B2B que les permite agilizar y automatizar los procesos de compra integrada con NetSuite.
+      * Los clientes pueden registrarse fácilmente, acceder a su historial de compras, consultar su balance financiero y recibir notificaciones en tiempo real sobre el estado de sus pedidos. 
+      * El sistema de seguimiento de productos y el módulo de atención al cliente garantizan una experiencia de compra enfocada en la experiencia de usuario.
+      *  Stack: Next + React, Laravel, Integración con NetSuite y autentificación con Jwt.
+	  
+
+	Desarrollo de Sistema de backoffice para Analistas y Supervisores Tributarios:
+      * Permite consolidar en un solo lugar todas las determinaciones de sus clientes, facilita la carga de información desde los documentos entregados por ellos y gestiona su información, permitiendo la extracción de reportes de valor y facilita la administración de datos y documentos del negocio. 
+      * Elimina tareas manuales repetitivas que generan errores y permite una fácil gestión de determinaciones tributarias de distintos rubros, bajo el mismo producto.
+	  
+
+	Rediseño y desarrollo de su sitio web para Chile:
+      * Se tomó en cuenta los flujos de la página anterior, manteniendo los procesos y presentando mejoras a la usabilidad, buscando entregar autonomía al equipo de marketing para la gestión y actualización del contenido de las distintas secciones del sitio web.
+      * Se consideraron las integraciones con sus motores de reserva, Medios de pago Webpay y MecadoPago.
+	  
+
+	Desarrollo de App móvil para el cálculo de tarifas:
+      * Diseño y desarrollo de aplicaciones nativas para Android e iOS usando FLUTTER, enfocadas en el cálculo preciso de precios de minerales según las tarifas de la Empresa Nacional de Minería. La App incluye actualizaciones automáticas de tarifas para garantizar exactitud y una interfaz de usuario intuitiva para facilitar el acceso.
+	  
+
+
+
+  
+
+
+
+  
+
+
+
+	Desarrollo de una plataforma similar a Netflix y con funcionalidades de red social dentro del marco de la campaña de lanzamiento del nuevo modelo Kicks. Se buscaba experimentar con una campaña de lanzamiento 100% digital, con un foco distinto a lo realizado históricamente por la industria. 
+      * Se transformó a Kicks en una serie de televisión memorable, que cuenta la historia de un legendario hacker personificado por Giancarlo Esposito.
+ Objetivos conseguidos:
+      *  Nissan creció un 26% en presencia de marca.
+      *  Se generaron 29,6 millones de reproducciones.
+      *  La comunidad de Instagram de Nissan creció un 8%.
+      * Gracias al éxito, la campaña se extendió a otros países de LATAM (Argentina y Perú).
+
+
+En el contexto del evento Nissan Lights, que trajo a Chile una experiencia de realidad inmersiva y el show de luces más grande de Sudamérica, se encargó desarrollar un sistema web que permitía:
+      *  Visibilizar y difundir el evento.
+      *  Agendar horario para asistir al evento, permitiendo invitar a amigos al evento.
+      *  Interactuar con otros asistentes con funcionalidades de red social.
+Objetivos conseguidos:
+      * Gestión de miles de reservas exitosas que se fueron generando simultáneamente en pocas semanas.
+      * 100% de ocupación en los eventos.
+      * Soportar peaks de decenas de miles de personas en cola.
+	  
+
+	Desarrollo de nuevo sitio web corporativo SONAMI:
+      * Renovación en el web site, integrando lo último en diseño UI/UX. Este rediseño facilita un acceso rápido y mejora la legibilidad del contenido, optimizando la arquitectura de la información para enriquecer significativamente la experiencia del usuario y su interacción.
+Objetivos conseguidos:
+      * Garantizar que el nuevo diseño del sitio web sea completamente accesible y navegable en diversos dispositivos y plataformas.
+      * Optimizar la navegabilidad y accesibilidad del sitio web de SONAMI para permitir a los usuarios una interacción más fluida y eficiente, especialmente en la lectura de contenido relevante como métricas y tablas de la industria minera.
+	  
+
+	      * Desarrollo de la intranet de Anasac, diseñada para centralizar y simplificar el acceso a información y recursos críticos de la empresa y sus filiales, aumentando la eficiencia y la comunicación interna. 
+      * Incorporación de funciones avanzadas como SSO, integración con herramientas externas como Teams, SAP, Buk, Rindegastos, Aranda, y más. 
+      * Ofrece personalización extensa en paneles de control de usuarios y perfiles, incluyendo accesos directos personalizables y distintas visualizaciones, lo que asegura una experiencia de usuario óptima y adaptada a las necesidades individuales de cada empleado. 
+      * La plataforma también se enfoca en la seguridad y el desarrollo profesional mediante secciones dedicadas a la capacitación en seguridad y acceso a manuales y políticas actualizados.
+Objetivos conseguidos:
+      *  Centralización de Información y Recursos.
+      *  Mejora de la Comunicación Interna.
+      *  Integración con Herramientas Externas.
+      *  Personalización de la Experiencia de Usuario.
+      *  Enfoque en Seguridad y Desarrollo Profesional.
+	  
+
+	PIA360 es una plataforma autónoma de capacitación en temas de ética y cumplimiento, desarrollada con inteligencia artificial.
+Objetivos conseguidos:
+      *  Capacitación en Ética y Cumplimiento: Proporcionar una plataforma autónoma para capacitar a los trabajadores.
+      *  Interacción Vía WhatsApp: Permite interactuar con los trabajadores vía whatsapp modelando una cultura organizacional integra y responsable.
+      *  Inteligencia Artificial Adaptativa: PIA360 no sólo enseña; aprende y se adapta en cada interacción, asegurando una experiencia de aprendizaje única y a medida para cada empresa.
+	  
+
+	Desarrollo de Servicio de hiperautomatización para selección de RRHH.
+      * Implementación de una plataforma de hiperautomatización del backoffice para la división de selección de RRHH de Ferrovial Servicios, buscando mejorar el desempeño de su proceso de recolección y análisis de antecedentes de postulantes.
+      * El proceso automatizado con diferentes herramientas considera: (1) recolección de postulaciones desde casilla email, discriminando correos válidos, de otros, (2) recolección de postulaciones desde WhatsApp, (3) descarga y análisis de CVs adjuntos, (4) calificación de características del postulante según diferentes vacantes y roles predefinidos, (5) integración al sistema de gestión de personas interno de la empresa.
+	  
+
+	Creación de sistema de gestión de lockers inteligentes:
+      * Equipo tecnológico de eLock desde hace más de 3años. 
+      * Desarrollo de sistemas, que permiten la gestión de lockers inteligentes para la recepción y entrega de paquetes/encomiendas.
+      * Los Clientes compran en ecommerce y pueden retirar paquetes escanear un QR que reciben por whatsapp.
+      * Asignación inteligente de lockers según el tamaño del paquete y restricciones de almacenamiento (refrigerado o no refrigerado).
+      *  Backoffice de administración para gestión de los pedidos y el negocio.
+	  
+
+	Desarrollo de SaaS B2B Wasabil, plataforma que permite automatizar la emisión de facturas de compra a partir de cada invoice que generan sus servicios digitales, disminuyendo tiempo y dinero.
+      * Está integrado al SII y a los distintos facturadores electrónicos del mercado, además de los servicios digitales contratados en el extranjero.
+Wasabil es parte de GUX Startup Studio.
+	  
+
+	Desarrollo de Sistema de reportes para apoyar la administración y gestión de espacios dedicados al entrenamiento deportivo.
+      * El sistema es capaz de proveer y hacer cruce de datos tanto históricos como en tiempo real, mostrando estadísticas, gráficos, informes de uso, de ventas, cursos, profesores, recurrencia, abandono, etc. Todo lo necesario para apoyar en la toma de decisiones al administrador de un establecimiento.
+      * Despliegue front en Amplify.
+      * Despliegue back en instancia ec2 de AWS de 4GB de RAM y 20Gb de espacio en disco, con Sistema Operativo ubuntu 22.04.
+      *  Front: React + Next
+      *  Back: Laravel 10
+      *  Base de datos: MySql 5.7
+	  
+
+	Desarrollo, implementación y mantenimiento de un sitio web de inversiones, con fuerte enfoque en la administración del registro de inversiones a través de un backoffice y con una gran experiencia de usuario que facilita todo el proceso de invertir, entregando veracidad y seguridad para la toma de decisiones del cliente.
+      * Desarrollo de una página web responsiva para el onboarding y gestión de pagos/inversiones de los clientes, automatizando pasos como la firma de documentos.
+      * Entrega autonomía al equipo de administración y ventas para gestionar la documentación y avance de los proyectos de inversión.
+	  
+
+	Soporte y mejor continua en sus sistemas de backoffice: Netsuite Oracle.
+      * Asesoría e implementación de mejoras evolutivas en sus plataformas de backoffice con el objetivo de mejorar sus procesos y experiencia de gestión interna.
+      * Eficiencia mejorada: Las recomendaciones y soluciones implementadas han permitido optimizar sus operaciones, agilizando y facilitando su gestión diaria.
+      * Mayor control y visibilidad: mediante el correcto uso de Netsuite, se tiene un control más preciso de sus datos y procesos, lo que les proporciona una visión integral de sus operaciones.
+      * Optimización de recursos: Gracias a las sugerencias y acompañamiento en la implementación, se ha logrado maximizar el aprovechamiento de la plataforma, reduciendo costos y aumentando su eficacia.
+Facturador Electrónico Facele
+      * Implementación de solución de Emisión y Recepción de Facturas Electrónicas por medio de un Facturador Electrónico, utilizando la natividad de NetSuite y logrando un 100% de los casos de uso.
+	  
+
+	Paperless y automatización:
+      * Digitalizar procesos claves que antes se realizaban manualmente, específicamente relacionados a la gestión de maquinaria de la empresa.
+Objetivos conseguidos:
+      * Se obtuvo una trazabilidad de las máquinas en tiempo real.
+      * Conocimiento en línea sobre el lugar y con qué cliente se encuentra cada máquina.
+      * Reducción del tiempo de ingreso y salida de maquinaria en un 40%.
+      * Generación de informes de estados de maquinaria automatizados, disminuyendo el tiempo utilizado para estos fines en más de un 90%.
+      * Se elimina el uso de papel en la gestión de maquinarias.
+	  
+
+	      * Diseño y desarrollo de un onboarding digital que automatiza todo el flujo.
+Objetivos conseguidos:
+      * 70% ahorro en tiempo dedicado a registrar nuevos clientes.
+      * Mejora sustancial en la experiencia de registro para los nuevos clientes (excel vs onboarding digital).
+	  
+
+	Desarrollo de Progressive Web App: Realización de varios proyectos con el objetivo de hacer crecer presencia digital de la marca y potenciar las ventas online: 
+      *  Lanzamiento de eCommerce en Perú.
+      *  Soporte del sitio web.
+      *  Desarrollo de un nuevo eCommerce.
+      *  Integración de pasarela de pago de presentadoras para automatizar la validación de las ventas/compras de sus clientes.
+	  
+
+	Diseño y desarrollo de plataforma de alojamientos:  Startup que conecta estudiantes de intercambio y ejecutivos que viajan al extranjero por estadías mayores a un mes, con anfitriones locales. 
+      * Equipo tecnológico integral desde el año 2017.
+      * Ganador Incuba UC, 2018 🏆
+      * Reconocido como emprendimiento del año UDD.
+      * Startup ganadora del programa “Jaula de Negocios” en Chile y Perú.
+      * Presencia en Latinoamérica, Norteamérica y Europa.
+	  
+
+	Plataforma innovadora diseñada para simplificar las tareas cotidianas y mejorar la calidad de vida de personas con discapacidad cognitiva. Los usuarios pueden recibir instrucciones auditivas y visuales para cada tarea cotidiana de su día a día, un paso a paso de cómo hacer ciertas cosas como: levantarse, vestirse, asearse, preparar algo de comer, hacer ejercicios, etc. 
+      * Funciona en conjunto con una skill de Alexa y se controlada con comandos de voz. 
+      * Los tutores y cuidadores tienen acceso a un completo manual de uso y pueden crear y gestionar rutinas personalizadas para distintos usuarios, gestionar roles y permisos. 
+      * Cambia la forma en que las personas con discapacidad cognitiva interactúan con su entorno, proporcionando apoyo, autonomía y libertad.
+	  
+
+	Desarrollo de aplicación web con sistema de votación y funcionalidades de red social: The Top es una plataforma que busca dar la oportunidad a las personas de probar miles de productos y experiencias gastronómicas para que se conviertan en verdaderos jueces de mercado. Esto les ha permitido convertirse en el mayor catálogo gastronómico de Chile.
+      * Equipo tecnológico durante 4 años, desarrollando las plataformas que permiten generar eventos, rankear restaurantes y platos de comida, seguir a críticos gastronómicos, poder realizar publicaciones de experiencias gastronómicas con funcionalidades tipo Instagram. 
+	  
+
+	Desarrollo y mantenimiento de su plataforma con presencia en Chile, Brasil, Perú, Ecuador y Argentina, con más de 60.000 deportistas registrados.
+      *  Centraliza los datos del 99% del atletismo a nivel nacional.
+      * Startup parte de GUX Startup Studio.
+	  
+
+	      * Desarrollo de Sistema de gestión, aplicación web y móvil, soporte técnico, Backoffice de administración del negocio y proyectos varios.
+	  
+
+	Paperless y automatización: 
+      * Desarrollo de una aplicación web que permite digitalizar la creación de formularios, la gestión y la firma por parte de los clientes, automatizando así la rendición hacia las municipalidades.
+      * Sistema para ingresar nuevas alarmas y notificación de instalación de alarmas automático hacía las municipalidades.
+      * Reducción del tiempo de ingreso de documentos en un 99%.
+	  
+
+	Desarrollo de Balanzas inteligentes para automatizar la gestión de bodegas en el agro:
+      * MVP que permite conectar balanzas con la nube (IoT) para recopilar información de uso de productos químicos en el agro. 
+      * Mejora continua del producto y soporte técnico.
+Objetivos conseguidos:
+      * Reducción de pérdidas por manejo de inventario. 
+      * Disponer de inventario en tiempo real.
+      * Disponer de un historial de compra, uso y salida de bodega de productos.
+      * Posibilidad de realizar planificaciones fitosanitarias de forma automatizada.
+	  
+
+	Desarrollo y diseño de Marketplace de Terrenos como una PWA, permitiendo a los usuarios registrarse, suscribirse a planes, publicar y vender terrenos directamente. 
+      * Plataforma completamente adaptable a todos los dispositivos y cuenta con un backoffice y panel de administración personalizados, tanto a nivel personal como empresarial, facilitando una gestión sencilla y eficaz.
+Objetivos conseguidos:
+      * Backoffice intuitivo y paneles de administración personal y empresarial, que ofrece a los usuarios la capacidad de gestionar de manera autónoma sus anuncios y suscripciones, lo que optimiza su experiencia y eficiencia.
+      * Marketplace que permite a los usuarios registrar, publicar y vender terrenos directamente, sin intermediarios, facilitando así un proceso de venta más rápido y con mayor control sobre las transacciones.
+      * Startup parte de GUX Startup Studio.
+	  
+
+	Diseño y desarrollo de App para iOS y Android:
+      * Desarrollo de una aplicación en Flutter disponible en App Stores y Play Store, vinculada a una PWA para una experiencia multiplataforma. 
+      * Permite estar en iOS, Android y Web bajo un mismo código.
+      * Permite a músicos y compositores registrar sus obras en pocos pasos, tanto desde la app como desde cualquier navegador en dispositivos móviles o de escritorio, facilitando la definición y protección de sus derechos de autor.
+Objetivos conseguidos:
+      * Simplificar el proceso de definición y gestión de derechos de autor para los creadores, utilizando tecnología avanzada para automatizar y agilizar los trámites necesarios.
+      * Startup parte de GUX Startup Studio.
+	  
+
+	Diseño y desarrollo de una PWA nativa que facilita a los usuarios realizar reservas desde cualquier dispositivo, estandarizando así el servicio al cliente. 
+      * Plataforma que mejora significativamente la gestión de reservas, permitiendo a los trabajadores administrar todo desde un backoffice intuitivo. 
+      * Integra motor de reservas con una gestión continua de ventas de boletos para eventos, lo que añade valor y funcionalidad al sistema.
+Objetivos conseguidos:
+      * Garantiza una aplicación robusta, escalable y adaptable a distintos dispositivos como móviles, tabletas y ordenadores.
+      * Sistema de gestión de reservas completo, con integraciones inteligentes para facilitar el manejo eficiente y flexible de las reservas de los usuarios.
+      * Interacción de los usuarios y el personal mediante una interfaz intuitiva y accesible, optimizando cada punto de contacto dentro de la plataforma para asegurar una experiencia de usuario satisfactoria y sin contratiempos.
+	  
+
+	Diseño y desarrollo de eCommerce en Shopify.
+      * El sitio ganó los eCommerce Awards Chile 2019, en la categoría “Mejor Pyme de eCommerce” 🏆
+	  
+
+	Investigación, desarrollo e innovación (I+D+i) de Inteligencia Artificial para asistencia a pacientes.
+      * Desarrollo de un asistente conversacional que, por medio de preguntas, así como el análisis exhaustivo de radiografías dentales usando inteligencia artificial, entrega una recomendación de tratamiento, y un informe a presentar al profesional, que detalla un pre-diagnóstico basado en síntomas e imágenes dentales.
+      * Entrega autonomía al equipo de administración y ventas, para gestionar la documentación y avance de los proyectos de inversión.
+	  
+
+	Rediseño y desarrollo de su sitio web corporativo con el objetivo de ordenar la arquitectura de la información y hacerlo más intuitivo para usuarios.
+Objetivos conseguidos:
+      * Reorganización de la arquitectura de la información, haciendo que sea más fácil de navegar y que los recursos y contenidos sean más accesibles para los usuarios.
+      * Aumento significativo en la interacción de los usuarios, lo que refleja una mayor eficacia en la comunicación de los valores y recursos del centro.
+	  
+
+	Desarrollo de webapp y plugin para eCommerce en Shopify.
+      * Se integra con los eCommerce en Shopify y habilita un módulo que le permite a los usuarios probarse los productos antes de comprarlos.
+      * Startup parte GUX Startup Studio.
+	  
+
+	Mejoras significativas en la lógica de negocios del backoffice para optimizar la experiencia de los usuarios al momento de realizar firmas digitales. 
+      * Desarrollo de un sistema versátil que permite a los usuarios firmar documentos de manera táctil, ingresar firmas mediante texto o cargar una imagen de la firma para colocarla directamente en el documento.
+Objetivos conseguidos:
+      * Optimización de la lógica de negocios del backoffice: Mejora en los procesos y flujos internos para aumentar la eficiencia y la facilidad de uso durante las sesiones de firma.
+      * Desarrollo de un sistema de firma digital multifuncional: Implementación de funcionalidades para firmar de manera táctil, por texto o mediante carga de imagen, adaptándose a las necesidades variadas de los usuarios.
+      * Refuerzo de la infraestructura y arquitectura de cloud: Mejora la infraestructura del servicio en la nube para garantizar una mayor estabilidad, escalabilidad y seguridad del sistema de firmas digitales.
+	  
+
+	Se realizó Alianza con ENTEL, para implementar y dar soporte técnico a nuevos clientes de unidad de negocio encargada de vender e implementar el ERP Oracle NetSuite.
+      * Creación de una Localización en el ambiente de Entel, la cual cuenta con su módulo de facturación electrónica donde se maneja tanto la emisión como recepción de facturas.
+	  
+
+	Desarrollo de Facturador Electrónico Iconstruye:  Emisión y Recepción de Facturas Electrónicas, utilizando la natividad de NetSuite y logrando un 100% de los casos de uso.
+      * Implementación de Subsidiarias 42 en Chile: Creación de subsidiarias, Carga de saldos iniciales, Apertura de CxC y CxP, Habilitación de clientes y proveedores.
+      * Soporte y mejora continua. 
+      * Mejoras evolutivas en sus plataformas de backoffice con el objetivo de mejorar sus procesos y experiencia de gestión interna.
+	  
+
+
+
+  
+
+	Soporte y mejora continua en sus sistemas de BackOffice: Oracle Netsuite 
+      * Implementación de Localizaciones de NetSuite para las subsidiarias de Chile (40), Panamá (7), USA (20), España (5) y Costa Rica (3). 
+      * Estas implementaciones incluyen: Finanzas, Compras, Ventas, Contabilidad, Activo Fijo, Pagos Masivos, Módulo Suite Approvals.
+      * Soporte y mejora continua a los países mencionados e incluyendo Colombia.
+	  
+
+	Soporte y mejora continua en sus sistemas de BackOffice: Oracle Netsuite 
+      * Implementación de subsidiarias (19). 
+      * Mejoras en los procesos de compra y pago proveedores. 
+      * Análisis completo de los roles y la seguridad.
+      * Configuración de los “Dashboard” con los indicadores de NetSuite, para los diferentes usuarios. 
+      * Implementación de distintas funcionalidades de NetSuite. 
+      * Soporte y mejora continua. 
+      * Módulos implementados: Finanzas, Compras, Ventas, Contabilidad, Pagos Masivos.
+	  
+
+	Soporte y mejora continua en sus sistemas de BackOffice: Oracle Netsuite 
+      * Implementación de NetSuite en múltiples subsidiarias. 
+      * Optimización en procesos de compras y pago a proveedores. 
+      * Mejoras en la generación de informes legales para Chile: Integración de NetSuite con una plataforma de despacho de camiones (gestión operaria) y Gestión de flujos de caja. 
+      * Soporte de segundo nivel para el grupo Inversiones Triple I.
+	
+
+
+
+________________
+
+
+      4. Referencia de servicios entregados similares a esta propuesta[q][r][s][t]
+      1. Pontificia Universidad Católica de Chile–Plataforma de Evaluación de Madurez en Gestión TI
+Objetivo
+Desarrollar una plataforma tecnológica robusta y adaptable que permita al Centro de Estudios de Tecnologías de la Información (CETIUC) evaluar el nivel de madurez en la gestión de servicios TI de distintas organizaciones públicas y privadas, a través de una metodología estructurada y personalizable.
+Alcance
+Desarrollo completo del sistema de medición de madurez TI, incluyendo módulos de creación de evaluaciones, configuración de dimensiones adaptables, reportería dinámica por niveles organizacionales, administración de perfiles de usuario y mejora continua de funcionalidades.
+Descripción
+El proyecto consistió en la construcción de una plataforma web modular para el levantamiento de información estratégica sobre la gestión de servicios TI. Se habilitaron funcionalidades para configurar evaluaciones con múltiples dimensiones e indicadores, personalizar criterios por sector o tipo de institución, aplicar encuestas a distintos perfiles organizacionales y visualizar resultados agregados en tiempo real.
+La solución incorporó múltiples tipos de usuarios (evaluadores, administradores, revisores, clientes institucionales) y permitió realizar comparaciones históricas y benchmarking entre organizaciones.
+Logros
+Si bien la plataforma acaba de ser lanzada, se han obtenido los siguientes logros:
+      * Excelente recepción inicial por parte de las instituciones participantes y usuarios administradores.
+      * Plataforma valorada por su interfaz intuitiva y capacidad de adaptación a distintos contextos organizacionales.
+      * Se observa una alta adherencia inicial en la participación de los primeros procesos de evaluación.
+      * Feedback positivo respecto al módulo de reportería y la claridad en la presentación de resultados.
+      * Base sólida para futuras iteraciones y mejoras funcionales que permitan ampliar su alcance.
+
+
+Descripción
+Desde septiembre de 2024 a la fecha
+
+
+      2. Bomberos de Chile – Apoyo integral a la Academia Nacional de Bomberos
+Objetivo
+Modernizar y fortalecer los procesos formativos y administrativos de la Academia Nacional de Bomberos mediante el desarrollo de soluciones tecnológicas que mejoren la trazabilidad del aprendizaje, la gestión documental y la articulación de plataformas formativas.
+Alcance
+Asesoría, diseño e implementación de herramientas digitales para apoyar la operación                 académica de la institución, incluyendo:
+      * Un sistema de gestión documental inteligente, con funcionalidades de búsqueda semántica y clasificación automatizada.
+      * El diseño de una plataforma administrativa conectada con Moodle para centralizar procesos educativos y administrativos.
+      * Acciones de levantamiento, acompañamiento técnico y descubrimiento de necesidades evolutivas en otras áreas del quehacer académico de la Academia.
+Descripción
+Desde 2024, GUX ha colaborado con la Academia Nacional de Bomberos en la construcción de un ecosistema digital más robusto y funcional. Se abordaron problemáticas clave como la fragmentación de la información formativa, la baja trazabilidad de la progresión académica de los voluntarios y la dificultad para gestionar documentación crítica.
+Como parte de la solución, se integraron tecnologías de inteligencia artificial para la clasificación documental y se sentaron las bases para una plataforma de gestión académica más coherente y conectada, alineada con las herramientas ya utilizadas por la Academia, como Moodle.
+Logros
+      * Implementación de un gestor documental que agiliza el acceso y organización de material formativo y administrativo.
+      * Mejora significativa en la trazabilidad de los procesos formativos de los voluntarios.
+      * Reducción del tiempo dedicado a la búsqueda y gestión de documentos clave.
+      * Consolidación procesos administrativos en una sola plataforma, con potencial de expansión.
+      * Aumento en la capacidad de monitoreo del aprendizaje, con mejor visibilidad para instructores y directivos.
+Descripción
+Desde septiembre de 2024 a la fecha
+
+
+      3. Universidad de Las Américas – Plataforma para apoyo a personas con discapacidad cognitiva
+Objetivo
+Desarrollar una solución tecnológica inclusiva que promueva la autonomía de personas con discapacidad cognitiva, facilitando su interacción con el entorno a través de rutinas guiadas y personalizadas por voz.
+Alcance
+Diseño, desarrollo e iteración continua de Lectogram, una plataforma accesible que combina comandos de voz, visuales intuitivas y un panel de gestión para cuidadores y profesionales de apoyo.
+Descripción
+Lectogram es una plataforma innovadora orientada a mejorar la calidad de vida de personas con discapacidad cognitiva. Mediante rutinas guiadas paso a paso, entregadas a través de comandos de voz por medio de una skill de Alexa, los usuarios pueden realizar actividades cotidianas como vestirse, asearse o preparar alimentos, promoviendo su independencia.
+Los cuidadores y tutores, por su parte, acceden a un panel web que les permite personalizar las rutinas para cada persona, gestionar permisos, roles, horarios y realizar seguimiento del cumplimiento de actividades. Esta trazabilidad ha permitido también documentar avances y adaptar estrategias según los resultados individuales.
+Logros
+      * Plataforma activa y validada en contextos reales de acompañamiento a personas con discapacidad.
+      * Alta satisfacción por parte de cuidadores, destacando su facilidad de uso y valor práctico.
+      * Incremento en la autonomía de usuarios que han comenzado a ejecutar rutinas con menor asistencia.
+      * Posibilidades de adaptación a múltiples perfiles y necesidades específicas.
+      * Avances en exploraciones con centros educativos y terapéuticos para futuras ampliaciones.
+Descripción
+Desde octubre de 2023 a la fecha.
+
+
+      4. Universidad Santo Tomas – Plataforma administrativa con hiperautomatización:  
+Objetivo
+Optimizar la gestión administrativa asociada al pago de honorarios y servicios, asegurando trazabilidad, cumplimiento normativo y reducción del esfuerzo operativo requerido por parte del equipo institucional.
+Alcance
+Desarrollo de una plataforma de automatización inteligente que permite evaluar, conciliar y hacer seguimiento al cumplimiento de pagos a profesores y proveedores, integrando fuentes tributarias (SII) y contractuales institucionales.
+Descripción
+Se implementó una solución tecnológica orientada a eliminar los procesos manuales de revisión y conciliación entre boletas de honorarios electrónicas y los contratos vigentes de profesores, ayudantes y prestadores de servicios. El sistema permite recolectar automáticamente la información tributaria desde el SII, comparar condiciones de pago, montos y cláusulas contractuales, y generar validaciones que aseguran el cumplimiento adecuado de los compromisos adquiridos por la universidad.
+Además de las validaciones automáticas, la plataforma ofrece funcionalidades de reportería, visualización de alertas y trazabilidad completa, permitiendo a las áreas académicas y administrativas tomar decisiones informadas con base en datos confiables.
+Logros
+      * Reducción del 97% en el tiempo dedicado a la conciliación manual de documentos tributarios y contratos.
+      * Implementación de validaciones automáticas que aseguran cumplimiento de cláusulas contractuales.
+      * Aumento significativo en la trazabilidad de pagos y documentación asociada.
+      * Mejora en los tiempos de respuesta institucional y en la capacidad de auditoría interna.
+Duración del Servicio
+Desde fines de 2023 a la fecha.
+      5. Universidad Alberto Hurtado – Plataforma administrativa con hiperautomatización:  
+Objetivo
+Reducir significativamente la carga operativa asociada a la gestión de pagos de honorarios a académicos, asegurando cumplimiento contractual, trazabilidad documental y eficiencia en tiempos de respuesta.
+Alcance
+Desarrollo e implementación de una plataforma que automatiza el ciclo completo de pagos a académicos, desde la generación de contratos hasta la conciliación con boletas electrónicas emitidas ante el SII, integrando inteligencia artificial para validaciones automatizadas.
+Descripción
+La solución implementada permite gestionar de forma automática los contratos semestrales de los profesores, emitir boletas electrónicas en nombre de los profesionales ante el SII, conciliar pagos con la cuenta del banco y validar el cumplimiento de las condiciones estipuladas en los contratos académicos.
+El sistema incluye funcionalidades de monitoreo en tiempo real, reportería por unidad académica, alertas automatizadas ante incumplimientos y trazabilidad completa de cada operación, facilitando la auditoría interna y el control institucional sobre los servicios prestados por académicos y ayudantes.
+Logros
+      * Eliminación total del trabajo manual en la emisión y conciliación de pagos de honorarios.
+      * Reducción de +99% en errores asociados a la emisión de boletas electrónicas.
+      * Disminución superior al 90% en los tiempos de procesamiento administrativo.
+      * Seguimiento activo de servicios prestados mediante reportería y alertas automatizadas.
+      * Trazabilidad completa y control documental por unidad académica.
+Duración del Servicio
+Desde fines de 2018 a la fecha.
+
+
+      6. Clínica Santa María - Automatización:  
+Objetivo
+Optimizar la gestión administrativa y financiera de los servicios médicos prestados en la Clínica Santa María, mediante la automatización de procesos clave asociados a la generación de pagos, trazabilidad documental, monitoreo de servicios y gestión contable.
+Alcance
+Desarrollo y mejora continua de una plataforma integral que automatiza los procesos administrativos vinculados a la relación con los médicos prestadores. Incluye gestión de honorarios, emisión de documentos tributarios, generación y administración de contratos, y desarrollo de aplicaciones móviles para uso clínico.
+Descripción
+Durante más de seis años, GUX ha trabajado junto a la Asociación Médica Santa María en la evolución de sus sistemas internos. Se ha implementado una solución de hiperautomatización con inteligencia artificial para la generación automática de nóminas y pagos de honorarios, conciliación con el SII, trazabilidad de servicios, y gestión de excepciones.
+ El sistema cuenta con robots que ejecutan tareas de conciliación de boletas y emisión de documentos tributarios electrónicos. Además, se desarrollaron aplicaciones móviles para Android y iOS que permiten a los médicos consultar su historial de pagos, gestionar su documentación y visualizar reportes de desempeño.
+ Todo esto se sustenta sobre una arquitectura moderna basada en microservicios en AWS, que ha permitido una escalabilidad segura y eficiente.
+Logros
+      * Más de 90% de reducción en tiempos administrativos.
+      * Procesamiento mensual de más de 3.000 DTEs, con una tasa de conciliación exitosa del 98%.
+      * Reducción significativa de costos operacionales y tiempo de procesamiento de pagos.
+      * Detección y corrección automatizada de errores en procesos contables.
+      * Experiencia de usuario mejorada para médicos, con acceso móvil a información clave.
+      * Mejora en la trazabilidad, control documental y monitoreo de cumplimiento.
+      * Posibilidad de emitir contratos mediante inteligencia artificial cognitiva.
+      * Arquitectura modernizada, con mejoras sustantivas en rendimiento y mantenibilidad del sistema.
+Duración del Servicio
+Desde noviembre de 2018 a la fecha.
+
+
+
+
+      7. Macal - Automatización:  
+Objetivo
+Reducir significativamente los tiempos y errores en la conciliación de transferencias bancarias y garantías financieras, optimizando los procesos del área de operaciones y finanzas.
+Alcance
+Desarrollo, implementación y evolución continua de una solución de hiperautomatización para la conciliación automática de pagos y garantías, con integración a SAP Business One y visualización en dashboards personalizados para el equipo de gestión.
+Descripción
+Se habilitó una plataforma basada en SimonVe —nuestro motor de hiperautomatización— para revisar automáticamente las transferencias bancarias entrantes y conciliarlas con las garantías asociadas a clientes interesados en participar en remates.
+La solución permite validar que los montos recibidos correspondan a garantías efectivamente comprometidas, reconocer automáticamente el estado contable de cada transacción, y actualizar los sistemas internos de forma inmediata. Esta automatización se integra directamente con el ERP SAP Business One, reduciendo tareas manuales, errores administrativos y tiempos de procesamiento.
+Además, el sistema cuenta con dashboards de seguimiento, alertas ante discrepancias, y trazabilidad completa del proceso, lo que brinda seguridad y visibilidad tanto al equipo financiero como operativo.
+Logros
+      * Gestión de garantías en minutos, acelerando la habilitación de participación de clientes en remates.
+      * Actualización automática y confiable del estado contable en SAP.
+      * Trazabilidad de extremo a extremo del proceso de conciliación.
+      * Reducción drástica de errores por digitación o validación manual.
+      * Fortalecimiento del control financiero y auditoría interna.
+Duración del Servicio
+Desde el primer trimestre de 2020 a la fecha.
+
+
+________________
+
+
+      5. Evidencia Experiencia General de la Empresa en el Servicio
+N°
+	Nombre Empresa
+	Rut Cliente
+	N° Factura
+	Periodo Ejecución
+	Documento
+	1
+	Pontifica Universidad Católica de Chile 
+	81.698.900-0
+	1708
+	Desde septiembre de 2024 a la fecha
+	  
+
+	2
+	Universidad Santo Tomás (*)
+	76.897.864-6
+	1773
+	Desde fines de 2023 a la fecha
+	  
+
+	3
+	Universidad Alberto Hurtado (*)
+	76.897.864-6
+	11773
+	Desde fines de 2018 a la fecha
+	  
+
+	4
+	Universidad de Las Américas
+	71.540.800-7
+	1827
+	Desde octubre de 2023 a la fecha
+	  
+
+	5
+	Junta Nacional de Cuerpos de Bomberos de Chile
+	70.073.800-0
+	1785
+	Desde septiembre de 2024 a la fecha
+	  
+
+	6
+	Asociación Médica Santa María SPA
+	76.933.886-1
+	1848
+	Desde noviembre de 2018 a la fecha
+	  
+
+	7
+	Sociedad Comercializadora y de Servicios Macal LTDA
+	79.546.430-1
+	1849
+	Desde primer trimestre de 2020 a la fecha
+	  
+
+	
+
+(*) El servicio es prestado a través de la Empresa BRAINY SPA para las Universidades Santo Tomás y Alberto Hurtado.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Detalle de las Facturas:
+N° Factura
+	Detalle
+	N° Factura
+	Detalle
+	1708
+	  
+
+	1773
+	  
+
+	1827
+	          
+	1785
+	  
+
+	
+
+
+
+
+
+N° Factura
+	Detalle
+	N° Factura
+	Detalle
+	1848
+	  
+
+	1849
+	  
+
+	________________
+
+
+      11. EQUIPO DE TRABAJO – CV
+El equipo está formado por profesionales con amplia experiencia en sus respectivas áreas, quienes destacan por su compromiso, conocimiento y pasión por ofrecer soluciones innovadoras y de alta calidad. Su trayectoria y expertise permite afrontar desafíos con excelencia, impulsando el crecimiento y éxito de la empresa, así como generar un impacto positivo en los clientes y colaboradores.
+ Una captura de pantalla de un celular con texto e imágenes
+
+El contenido generado por IA puede ser incorrecto. 
+
+
+
+
+
+
+
+
+
+
+
+Figura 4. Equipo de Trabajo en GUX
+Los profesionales son especializados, con amplia experiencia en diversos sectores. Se cuenta con expertos en optimización de procesos, desarrollo, hiperautomatización e inteligencia artificial, al servicio de la mejora de procesos, asegurando una implementación eficiente, alineada con las mejores prácticas del mercado y los estándares regulatorios. La trayectoria de GUX en la industria permite comprender los desafíos específicos del sector, aportando soluciones a medida que optimizan costos y mejoren la eficiencia operativa.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Texto
+
+El contenido generado por IA puede ser incorrecto. 
+
+
+
+ Texto
+
+El contenido generado por IA puede ser incorrecto. 
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+      12. MATERIA DE SOSTENIBILIDAD 
+En GUX, la sostenibilidad es considerada un pilar fundamental para el éxito y el desarrollo de sus funciones. La organización no se limita únicamente a la gestión eficiente de los recursos naturales, sino que también abarca la creación de valor social y económico para sus partes interesadas, el desarrollo de prácticas empresariales éticas y responsables, y la promoción del bienestar de sus colaboradores, clientes y la comunidad en general.
+
+
+         Imagen que contiene Diagrama
+
+El contenido generado por IA puede ser incorrecto. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Figura 5. Materia Sostenibilidad en  GUX
+
+
+Como empresa de desarrollo y consultoría, GUX reconoce que, si bien no es una organización intensiva en el uso de recursos naturales, sus decisiones y operaciones generan un impacto ambiental. Este se manifiesta principalmente en el uso de energía, la gestión de residuos y la huella de carbono derivada de sus actividades digitales y presenciales. En respuesta, la empresa se compromete a minimizar dicho impacto mediante acciones concretas y medibles.
+Asimismo, GUX considera a sus colaboradores como el recurso más valioso. Por ello, se compromete a garantizar que todos cuenten con las condiciones adecuadas para desempeñar sus funciones de manera segura, equitativa y satisfactoria. En esta línea, su política de sostenibilidad también incluye iniciativas orientadas al bienestar y desarrollo del equipo, asegurando beneficios equitativos para todos sus profesionales.
+
+
+      13. POLÍTICA DE DIVERSIDAD E INCLUSIÓN 
+GUX está comprometido con las personas. Sus valores corporativos —innovación, pasión, ética, colaboración y excelencia— definen su identidad, guían sus acciones y reflejan su aspiración de ser un gran lugar para trabajar. La organización cree firmemente en la importancia de promover un entorno laboral diverso e inclusivo, donde cada persona pueda desarrollar su máximo potencial.
+Este compromiso con la inclusión no solo responde a sus principios, sino que también se encuentra alineado con las normativas y leyes vigentes en Chile, que promueven la igualdad de oportunidades y el respeto por la diversidad en el entorno laboral.
+GUX incorpora una Política de Diversidad e Inclusión como parte central de su estrategia corporativa, reafirmando así su aspiración de ser una empresa más humana, equitativa y respetuosa de las diferencias que enriquecen a su equipo y entorno. 
+ Escala de tiempo
+
+El contenido generado por IA puede ser incorrecto. 
+
+Figura 6. Política de Diversidad e Inclusión en GUX
+________________
+[1] https://www.pmi.org/disciplined-agile
+[a]Es posible ofrecer esto?
+[b]totalmente, lo hacemos frecuentemente. me queda la duda de si esto debe montarse en servidores de la universidad o en alguna nube
+[c]agregar que podemos trabajar en la nube u on premise
+[d]agregué esto ya que según las bases hay que considerar una integración a moodle, aunque no especifica qué debe hacer esa integración exactamente
+[e]@Paulina Mota Agregué esto para el plan
+[f]Muchas gracias Rodrigo
+[g]Falta desarrollar según las bases
+[h]entendería que esto debe ser un punto distinto, fuera de las políticas de soporte
+[i]cambiado
+[j]Confirmar si este se considera la politica de garantias
+[k]acá va una propuesta para este apartado, será necesario hablar de valores de hora? o mejor que quede abierto?
+[l]Lo dejaría abierto y el valor de las horas lo consideraría dentro de la oferta economica
+[m]@Paulina Mota Cambia lo de "en paralelo"
+[n]@Paulina Mota Cambié de 2 a 1 mes
+[o]En las bases se exige incorporar carta gantt
+[p]Rodrigo estaba trabajando en esto
+[q]Entiendo que faltan otros casos por desarrollar: Bomberos, U de las Americas, U Catolica
+[r]Lo incorpore acá para desarrollar mayor detalle de estos casos (Objetivos, logros, alcance), desde la letra e) a la g)….debemos respaldar lo que se esta haciendo de la mejor forma posible, asi que tambien bamos a adicionar facturas
+[s]están en el anexo de referencias, es necesario también traerlos para acá?
+[t]listo!

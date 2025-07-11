@@ -1,20 +1,18 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import Navbar from './components/Navbar'
-import ProjectEstimation from './components/ProjectEstimation'
 import ProposalGenerator from './components/ProposalGenerator'
-import StartupProposalGenerator from './components/StartupProposalGenerator'
-import PreviousProposals from './components/PreviousProposals'
-import ProjectAnalytics from './components/ProjectAnalytics'
-import TestPDF from './components/TestPDF'
+import ProposalGeneratorTwo from './components/ProposalGeneratortwo'
 
-type TabType = 'estimation' | 'proposal' | 'startup' | 'previous' | 'analytics' | 'test'
+
+type TabType = 'proposal' | 'proposalss'
 
 function App() {
-  const [activeTab, setActiveTab] = useState<TabType>('estimation')
+  const [activeTab, setActiveTab] = useState<TabType>('proposal')
 
   const tabs = [
 
     { id: 'proposal', label: 'Generador de Propuestas', icon: '📝' },
+    { id: 'proposalss', label: 'Generador de Propuestas 2', icon: '📝' },
   ]
 
   return (
@@ -42,12 +40,10 @@ function App() {
 
         {/* Tab Content */}
         <div className="space-y-6">
-          {activeTab === 'estimation' && <ProjectEstimation />}
+    
           {activeTab === 'proposal' && <ProposalGenerator />}
-          {activeTab === 'startup' && <StartupProposalGenerator />}
-          {activeTab === 'previous' && <PreviousProposals />}
-          {activeTab === 'analytics' && <ProjectAnalytics />}
-          {activeTab === 'test' && <TestPDF />}
+          {activeTab === 'proposalss' && <ProposalGeneratorTwo />}
+  
         </div>
       </div>
     </div>

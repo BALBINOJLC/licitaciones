@@ -1,0 +1,150 @@
+{
+    "projectInfo": {
+      "name": "Sistema de Medición de Competencias Transversales Sello",
+      "client": "Universidad Técnica Federico Santa María",
+      "date": "Mayo 2025",
+      "totalCost": 45000000,
+      "timeline": "5 meses"
+    },
+    "sections": [
+      {
+        "id": "1",
+        "title": "Resumen Ejecutivo",
+        "type": "text",
+        "content": "La presente propuesta responde a la necesidad de la Universidad Técnica Federico Santa María (UTFSM) de contar con un servicio especializado para el desarrollo e implementación de un Sistema de Medición, Control y Reporte de Competencias Transversales, que permita evaluar el progreso formativo de sus estudiantes de manera sistemática, integrada y basada en datos.\n\nEsta solución tiene por objetivo fortalecer los procesos institucionales de evaluación y seguimiento, entregando herramientas tecnológicas que contribuyan a la mejora continua de la calidad educativa. La propuesta contempla el diseño e implementación de una plataforma web alojada en la nube, desarrollada bajo un enfoque modular que incluye funcionalidades clave como: gestión de competencias y rúbricas, evaluación y seguimiento del desempeño estudiantil, visualización de indicadores clave a través de un panel de control, e integración bidireccional con plataformas institucionales como SIGA y Moodle.",
+        "pageBreak": true
+      },
+      {
+        "id": "2",
+        "title": "Alcance del Servicio",
+        "type": "list",
+        "content": [
+          "Desarrollar una plataforma web alojada en la nube, moderna, segura e inclusiva, accesible desde distintos dispositivos y escalable",
+          "Diseñar e implementar mecanismos de medición y reporte de competencias transversales, aplicables a estudiantes de distintas carreras y niveles académicos",
+          "Incorporar un sistema flexible de creación, gestión y aplicación de rúbricas de evaluación, ajustado a los criterios institucionales",
+          "Proporcionar funcionalidades de acceso personalizado para distintos perfiles de usuarios (jefes de carrera, responsables académicos y estudiantes)",
+          "Facilitar la autoevaluación estudiantil mediante una interfaz intuitiva que fomente la reflexión individual",
+          "Generar reportes analíticos y visualizaciones de indicadores clave de desempeño para monitorear el progreso estudiantil",
+          "Permitir la incorporación de ajustes funcionales y mejoras en el sistema sin interrupciones de servicio"
+        ]
+      },
+      {
+        "id": "3",
+        "title": "Funcionalidades Clave del Sistema",
+        "type": "text",
+        "content": "El sistema considera los siguientes módulos principales:\n\n• Gestor de Competencias: Módulo en el cual el usuario Administrador podrá crear, editar, organizar y actualizar competencias transversales que se evalúan en la institución. Estas competencias estarán alineadas al modelo educativo de la UTFSM y podrán configurarse según niveles formativos, carreras, sedes y campus.\n\n• Gestor de Rúbricas de Evaluación: Módulo en el cual el usuario Administrador podrá crear, agregar, modificar y/o eliminar las distintas rúbricas de evaluación para cada competencia transversal, en cada uno de sus niveles formativos.\n\n• Módulo de Evaluación y Seguimiento: Módulo en el cual tanto los estudiantes como los jefes de carrera podrán realizar procesos de evaluación y autoevaluación.\n\n• Panel de Control y Reportería Avanzada: Módulo central de gestión estratégica donde el Administrador podrá monitorear el uso del sistema, analizar indicadores clave de desempeño y generar reportes personalizados.",
+        "pageBreak": true
+      },
+      {
+        "id": "4",
+        "title": "Tipos de Usuarios y Permisos",
+        "type": "table",
+        "content": {
+          "headers": ["Perfil de Usuario", "Descripción", "Permisos Principales"],
+          "rows": [
+            ["Administrador", "Equipo de gestión institucional, dirección académica o soporte TI", "Crear/editar competencias, gestionar rúbricas, configurar calendarios, supervisar uso del sistema"],
+            ["Jefe de Carrera", "Docente o académico con responsabilidad sobre coordinación de programas", "Visualizar resultados por carrera, participar en evaluaciones, validar autoevaluaciones, acceder a reportes"],
+            ["Estudiante", "Alumnado regular de la UTFSM", "Acceder a competencias definidas, realizar autoevaluaciones, visualizar historial de evaluaciones, recibir retroalimentación"]
+          ]
+        }
+      },
+      {
+        "id": "5",
+        "title": "Infraestructura Tecnológica",
+        "type": "text",
+        "content": "La solución propuesta contempla una infraestructura tecnológica moderna, escalable y segura:\n\n• Backend: Framework Django sobre Python, permitiendo una arquitectura robusta, modular y fácilmente integrable con sistemas existentes.\n\n• Frontend: Desarrollo basado en React, utilizado para la construcción de interfaces de usuario dinámicas, interactivas y reutilizables.\n\n• Base de Datos: Uso combinado de PostgreSQL (para datos estructurados relacionales) y MongoDB (para datos semiestructurados).\n\n• Infraestructura: Implementación sobre servidores Linux utilizando contenedores con Docker y orquestación a través de Kubernetes.\n\n• Integraciones: API RESTful para integración bidireccional con SIGA y Moodle, autenticación unificada con Microsoft EntraID.",
+        "pageBreak": true
+      },
+      {
+        "id": "6",
+        "title": "Equipo de Trabajo Asignado",
+        "type": "table",
+        "content": {
+          "headers": ["Rol", "Responsabilidades Principales", "Experiencia Requerida"],
+          "rows": [
+            ["Project Manager", "Planificación, coordinación y control del proyecto. Interacción directa con el equipo de la UTFSM", "Más de 10 años en gestión de proyectos tecnológicos"],
+            ["Tech Lead / Arquitecto", "Define la arquitectura del sistema, estándares técnicos y lineamientos de integración", "Experiencia en arquitecturas de sistemas educativos"],
+            ["Front-End Developer", "Desarrolla la interfaz de usuario según principios de usabilidad y accesibilidad", "React, TypeScript, diseño responsive"],
+            ["Back-End Developer", "Desarrolla la lógica de negocio, APIs RESTful y control de flujos de datos", "Django, Python, APIs RESTful"],
+            ["UX/UI Designer", "Diseña la experiencia y la interfaz de usuario, intuitiva e inclusiva", "Diseño centrado en usuario, accesibilidad"],
+            ["QA / Tester Funcional", "Diseña y ejecuta pruebas automatizadas y manuales", "Testing automatizado, casos de uso educativos"],
+            ["DevSecOps", "Gestiona entornos en la nube, automatiza despliegues, configura monitoreo", "Docker, Kubernetes, AWS/Azure"]
+          ]
+        }
+      },
+      {
+        "id": "7",
+        "title": "Metodología de Implementación",
+        "type": "text",
+        "content": "La implementación se realizará bajo la modalidad \"llave en mano\", utilizando un enfoque metodológico basado en Disciplined Agile del PMI:\n\nFase 1 - Inception (1 mes):\n• Refinamiento del alcance y visión del producto\n• Consolidación del equipo multidisciplinario\n• Consolidación de la arquitectura técnica\n• Confirmación del backlog inicial y priorización de requisitos\n\nFase 2 - Construction (3 meses):\n• Desarrollo incremental de los módulos\n• Iteraciones cortas (1-2 semanas) con demostraciones frecuentes\n• Implementación progresiva de las integraciones\n• Pruebas técnicas continuas\n\nFase 3 - Transition (1 mes):\n• Pruebas finales y transferencia tecnológica\n• Capacitación de personal técnico\n• Despliegue en producción\n• Activación de plan de soporte",
+        "pageBreak": true
+      },
+      {
+        "id": "8",
+        "title": "Garantías y Soporte Post-implementación",
+        "type": "text",
+        "content": "GUX ofrece una política de garantía y soporte post-implementación que asegura la continuidad operativa del sistema:\n\nGarantía Técnica (6 meses):\n• Corrección sin costo de errores funcionales, bugs o defectos atribuibles al código fuente\n• Corrección de errores de configuración en los entornos implementados\n• Revisión y ajuste de integraciones con sistemas institucionales\n• Actualización de la documentación técnica cuando se aplique alguna corrección\n\nSoporte Acompañado:\n• Resolución de consultas operativas y funcionales para usuarios autorizados\n• Acompañamiento en el monitoreo de integraciones y flujos críticos\n• Aplicación de ajustes menores de configuración\n• Participación en reuniones técnicas mensuales\n\nClasificación de Incidencias:\n• Nivel 1 (Crítico): 2 horas hábiles de respuesta\n• Nivel 2 (Medio): 8 horas hábiles de respuesta\n• Nivel 3 (Leve): 24 horas hábiles de respuesta"
+      },
+      {
+        "id": "9",
+        "title": "Plan de Capacitación",
+        "type": "list",
+        "content": [
+          "Capacitación funcional: 6 horas distribuidas en 2 a 3 sesiones según perfil",
+          "Capacitación técnica (TI): 6 a 8 horas distribuidas en sesiones especializadas",
+          "Acompañamiento supervisado: 4 semanas posteriores a la puesta en marcha",
+          "Acceso permanente a materiales asincrónicos",
+          "Manuales de usuario diferenciados por perfil",
+          "Cápsulas de video por funcionalidad clave (2 a 5 minutos)",
+          "Documentación técnica estructurada",
+          "Entorno de prueba (sandbox) disponible por 30 días",
+          "Preguntas frecuentes (FAQ) actualizadas"
+        ]
+      },
+      {
+        "id": "10",
+        "title": "Experiencia y Referencias",
+        "type": "text",
+        "content": "GUX cuenta con más de 20 años de experiencia en desarrollo de productos digitales, con presencia en Latinoamérica y Europa. Experiencia relevante en el sector educativo:\n\n• Pontificia Universidad Católica de Chile: Plataforma de Evaluación de Madurez en Gestión TI\n• Universidad Santo Tomás: Plataforma administrativa con hiperautomatización\n• Universidad Alberto Hurtado: Plataforma administrativa con hiperautomatización\n• Universidad de Las Américas: Plataforma para apoyo a personas con discapacidad cognitiva\n• Bomberos de Chile: Apoyo integral a la Academia Nacional de Bomberos\n\nEl equipo cuenta con especialistas en tecnologías educativas (EdTech), desarrolladores full-stack, arquitectos de software, y especialistas en experiencia de usuario. Se posee una sólida trayectoria en el diseño e implementación de soluciones para instituciones educativas en Chile y Latinoamérica.",
+        "pageBreak": true
+      },
+      {
+        "id": "11",
+        "title": "Factores Clave para el Éxito",
+        "type": "list",
+        "content": [
+          "Coordinación y ejecución de entrevistas y focus groups con participación activa de la UTFSM",
+          "Disponibilidad de APIs de SIGA y Moodle dentro de los plazos definidos",
+          "Documentación clara de APIs, ambientes de prueba y autenticación segura",
+          "Ambientes estables para QA y producción desde etapas tempranas",
+          "Dedicación de colaboradores clave de la UTFSM para validación y ejecución",
+          "Gestión de licencias de software, hardware especializado o insumos específicos por parte de la UTFSM",
+          "Cumplimiento normativo y alineación con regulaciones vigentes en Chile"
+        ]
+      },
+      {
+        "id": "12",
+        "title": "Cronograma Detallado del Proyecto",
+        "type": "table",
+        "content": {
+          "headers": ["Etapa", "Duración", "Actividades Principales", "Entregables"],
+          "rows": [
+            ["Inception", "1 mes", "Definición de requerimientos, análisis preliminar, identificación de actores", "Documento de especificación detallado y roadmap del proyecto"],
+            ["Construction", "3 meses", "Desarrollo iterativo-incremental de módulos, integraciones críticas", "Versiones funcionales incrementales de la plataforma"],
+            ["Transition", "1 mes", "Pruebas finales, transferencia tecnológica, capacitación, despliegue", "Solución operativa en ambiente de la UTFSM"]
+          ]
+        }
+      },
+      {
+        "id": "13",
+        "title": "Inversión y Condiciones de Pago",
+        "type": "text",
+        "content": "Costo Total del Proyecto: $45.000.000 (pesos chilenos)\n\nDesglose de Costos:\n• Desarrollo de plataforma web: $32.000.000\n• Integraciones con sistemas institucionales: $8.000.000\n• Capacitación y transferencia tecnológica: $3.000.000\n• Documentación y soporte inicial: $2.000.000\n\nCondiciones de Pago:\n• 30% al inicio del proyecto (firma de contrato)\n• 40% al completar la Fase de Construction\n• 30% al completar la Fase de Transition y aceptación del sistema\n\nGarantías Incluidas:\n• Garantía técnica por 6 meses\n• Soporte post-implementación por 6 meses\n• Actualizaciones de seguridad gratuitas\n• Capacitación completa del equipo técnico"
+      }
+    ],
+    "styling": {
+      "primaryColor": "#2563eb",
+      "secondaryColor": "#1e40af",
+      "fontFamily": "Arial, sans-serif"
+    }
+  }
