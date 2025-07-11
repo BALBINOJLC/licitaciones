@@ -157,11 +157,12 @@ const ProposalGenerator: React.FC = () => {
         }
       );
      
-      console.log(response);
       const data = await response.json();
    
       setJsonInput(JSON.stringify(data.oferta_json, null, 2));
- 
+      if (data.oferta_json) {
+        loadFromJSON(data.oferta_json);
+      }
       setUploadedFiles([]);
     } catch (error) {
       alert(
@@ -261,16 +262,20 @@ const ProposalGenerator: React.FC = () => {
   };
 
   // Función para cargar datos desde JSON
-  const loadFromJSON = () => {
+  const loadFromJSON = (externalData?: any) => {
     setJsonError("");
 
-    if (!jsonInput.trim()) {
-      setJsonError("Por favor, ingresa un JSON válido en el campo de texto.");
-      return;
-    }
-
+    let data;
     try {
-      const data = JSON.parse(jsonInput);
+      if (externalData) {
+        data = externalData;
+      } else {
+        if (!jsonInput.trim()) {
+          setJsonError("Por favor, ingresa un JSON válido en el campo de texto.");
+          return;
+        }
+        data = JSON.parse(jsonInput);
+      }
 
       // Validar estructura básica del JSON
       if (!data.projectInfo || !data.sections) {
@@ -687,10 +692,10 @@ const ProposalGenerator: React.FC = () => {
 
       case "list":
         return (
-          <ul className="list-disc list-inside space-y-2 text-gray-700">
+          <ul style={{ color: "#222", fontSize: "16px", marginLeft: "24px", marginBottom: "16px" }}>
             {Array.isArray(section.content) &&
               section.content.map((item: string, index: number) => (
-                <li key={index} className="leading-relaxed">
+                <li key={index} style={{ marginBottom: "6px" }}>
                   {item}
                 </li>
               ))}
@@ -742,47 +747,129 @@ const ProposalGenerator: React.FC = () => {
         );
     }
   };
-
+const ProposalPage = React.forwardRef(
+  (
+    { projectInfo, sections, renderSectionContent, isFirstPage }: { projectInfo: any, sections: any, renderSectionContent: any, isFirstPage: boolean },
+    ref: any
+  ) => (
+    <div
+      ref={ref}
+      style={{
+        width: "794px", // A4 px
+        minHeight: "1123px",
+        background: "#fff",
+        padding: "40px",
+        fontFamily: "Arial, sans-serif",
+      }}
+      className="bg-gray-50 border border-gray-200 rounded-lg p-8 max-w-4xl mx-auto"
+    >
+      {/* Header */}
+      <div className="text-center mb-8 pb-6 border-b-2 border-blue-600">
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">GUX</h1>
+        <p className="text-lg text-gray-600">Propuesta de Desarrollo</p>
+      </div>
+      {/* Project Info SOLO en la primera página */}
+    {/*   {isFirstPage && (
+        <div className="mb-8 p-6 bg-gray-50 rounded-lg">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            {projectInfo.name || "Nombre del Proyecto"}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+            <div>
+              <span className="font-medium text-gray-700">Cliente:</span>
+              <p className="text-gray-900">{projectInfo.client || "Nombre del Cliente"}</p>
+            </div>
+            <div>
+              <span className="font-medium text-gray-700">Fecha:</span>
+              <p className="text-gray-900">{projectInfo.date}</p>
+            </div>
+            <div>
+              <span className="font-medium text-gray-700">Costo Total:</span>
+              <p className="text-gray-900 font-bold">
+                ${projectInfo.totalCost.toLocaleString()}
+              </p>
+            </div>
+          </div>
+        </div>
+      )} */}
+      {/* Sections */}
+      <div className="space-y-8">
+        {sections.map((section) => (
+          <div key={section.id} className={section.pageBreak ? "page-break" : ""}>
+            <h3 className="text-xl font-bold text-blue-600 mb-4">{section.title}</h3>
+            {renderSectionContent(section)}
+          </div>
+        ))}
+      </div>
+      {/* Footer */}
+      <div className="mt-12 pt-6 border-t-2 border-gray-300 text-center text-gray-600">
+        <p>Equipo GUX - Especialistas en Desarrollo de Software</p>
+        <p>Email: contacto@gux.com | Tel: +1 (555) 123-4567</p>
+      </div>
+    </div>
+  )
+);
   // Función para generar PDF
   const generatePDF = async () => {
-    if (!proposalRef.current) return;
-
     setIsGeneratingPDF(true);
     try {
-      const canvas = await html2canvas(proposalRef.current, {
-        scale: 2,
-        useCORS: true,
-        allowTaint: true,
-        backgroundColor: "#ffffff",
-        logging: false,
-      });
-
-      const imgData = canvas.toDataURL("image/png", 1.0);
       const pdf = new jsPDF("p", "mm", "a4");
-
-      const imgWidth = 210;
+      const pageWidth = 210;
       const pageHeight = 295;
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      let heightLeft = imgHeight;
-
-      let position = 0;
-
-      pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
-      heightLeft -= pageHeight;
-
-      while (heightLeft >= 0) {
-        position = heightLeft - imgHeight;
-        pdf.addPage();
-        pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
-        heightLeft -= pageHeight;
+  
+      // Divide las secciones en páginas según pageBreak
+      let pages: Section[][] = [];
+      let currentPage: Section[] = [];
+      proposalData.sections.forEach((section, idx) => {
+        currentPage.push(section);
+        if (section.pageBreak || idx === proposalData.sections.length - 1) {
+          pages.push(currentPage);
+          currentPage = [];
+        }
+      });
+  
+      for (let i = 0; i < pages.length; i++) {
+        // Crea un div oculto
+        const pageDiv = document.createElement("div");
+        pageDiv.style.position = "absolute";
+        pageDiv.style.left = "-9999px";
+        document.body.appendChild(pageDiv);
+  
+        // Renderiza el componente ProposalPage en ese div
+        // OJO: necesitas ReactDOM.render (o createRoot en React 18+)
+        // Aquí un ejemplo para React 17:
+        import("react-dom").then(ReactDOM => {
+          ReactDOM.render(
+            <ProposalPage
+              projectInfo={proposalData.projectInfo}
+              sections={pages[i]}
+              renderSectionContent={renderSectionContent}
+              isFirstPage={i === 0}
+            />,
+            pageDiv
+          );
+        });
+  
+        // Espera un pequeño tiempo para que se renderice
+        await new Promise((res) => setTimeout(res, 100));
+  
+        // Convierte el div a imagen
+        const canvas = await html2canvas(pageDiv, { scale: 2, useCORS: true });
+        const imgData = canvas.toDataURL("image/png", 1.0);
+  
+        if (i > 0) pdf.addPage();
+        pdf.addImage(imgData, "PNG", 0, 0, pageWidth, pageHeight);
+  
+        // Limpia el div
+        import("react-dom").then(ReactDOM => {
+          ReactDOM.unmountComponentAtNode(pageDiv);
+        });
+        document.body.removeChild(pageDiv);
       }
-
-      const fileName = `${proposalData.projectInfo.name || "propuesta"}_${
-        new Date().toISOString().split("T")[0]
-      }.pdf`;
+  
+      const fileName = `${proposalData.projectInfo.name || "propuesta"}_${new Date().toISOString().split("T")[0]}.pdf`;
       pdf.save(fileName);
     } catch (error) {
-      console.error("Error generando PDF:", error);
       alert("Error al generar el PDF. Intenta de nuevo.");
     } finally {
       setIsGeneratingPDF(false);
