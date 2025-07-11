@@ -13,12 +13,8 @@ function App() {
   const [activeTab, setActiveTab] = useState<TabType>('estimation')
 
   const tabs = [
-    { id: 'estimation', label: 'Estimación de Proyecto', icon: '📊' },
+
     { id: 'proposal', label: 'Generador de Propuestas', icon: '📝' },
-    { id: 'startup', label: 'Propuestas Startups', icon: '🚀' },
-    { id: 'previous', label: 'Propuestas Anteriores', icon: '📋' },
-    { id: 'analytics', label: 'Analytics', icon: '📈' },
-    { id: 'test', label: 'Test PDF/Excel', icon: '🧪' }
   ]
 
   return (
