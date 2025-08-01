@@ -9,8 +9,20 @@ import {
   File,
   X,
 } from "lucide-react";
-import jsPDF from "jspdf";
-import html2canvas from "html2canvas";
+
+
+import * as pdfjsLib from "pdfjs-dist";
+import PDFViewer from "./PDFViewer";
+import PDFRedactor from "./PDFRedactor";
+import PDFIframeViewer from "./PDFIframeViewer";
+import PDFEditor from "./PDFEditor";
+import { PDFDocument, rgb } from "pdf-lib";
+
+// Configurar el worker de PDF.js
+pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
+  'pdfjs-dist/build/pdf.worker.min.js',
+  import.meta.url
+).toString();
 
 interface Section {
   id: string;
@@ -50,9 +62,9 @@ const ProposalGenerator: React.FC = () => {
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
   const [jsonInput, setJsonInput] = useState("");
   const [jsonError, setJsonError] = useState("");
-  const [isLoadingDocuments, setIsLoadingDocuments] = useState(false);
-  const [documentsError, setDocumentsError] = useState("");
-  const [documents, setDocuments] = useState<any[]>([]);
+  // const [isLoadingDocuments, setIsLoadingDocuments] = useState(false);
+  // const [documentsError, setDocumentsError] = useState("");
+  // const [documents, setDocuments] = useState<any[]>([]);
 
   // Nuevos estados para carga de archivos
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
@@ -62,9 +74,17 @@ const ProposalGenerator: React.FC = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const proposalRef = useRef<HTMLDivElement>(null);
 
+  // Estados para edición de PDF
+  const [loadedPDF, setLoadedPDF] = useState<ArrayBuffer | null>(null);
+  const [pdfPages, setPdfPages] = useState<string[]>([]);
+  const [isLoadingPDF, setIsLoadingPDF] = useState(false);
+  const [editablePDFContent, setEditablePDFContent] = useState<any[]>([]);
+  const [showPDFEditor, setShowPDFEditor] = useState(false);
+  const pdfInputRef = useRef<HTMLInputElement>(null);
 
 
-  const [jsonResponse, setJsonResponse] = useState<any>([]);
+
+  // const [jsonResponse, setJsonResponse] = useState<any>([]);
 
   // Función para manejar drag & drop
   const handleDragOver = (e: React.DragEvent) => {
@@ -150,7 +170,7 @@ const ProposalGenerator: React.FC = () => {
       });
 
       const response = await fetch(
-        "https://1520dd80f518.ngrok-free.app/generar-oferta-multiple",
+        "https://981af84414fa.ngrok-free.app/generar-oferta-multiple",
         {
           method: "POST",
           body: formData,
@@ -196,7 +216,240 @@ const ProposalGenerator: React.FC = () => {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];
   };
 
-  // Función para cargar documentos desde API
+  // Función para cargar PDF para edición
+  const loadPDFForEditing = async (file: File) => {
+    setIsLoadingPDF(true);
+    try {
+      const arrayBuffer = await file.arrayBuffer();
+      setLoadedPDF(arrayBuffer);
+      
+      // Extraer texto del PDF usando PDF.js
+      const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
+      const pdf = await loadingTask.promise;
+      
+      const extractedContent: any[] = [];
+      const pageImages: string[] = [];
+      
+      for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+        const page = await pdf.getPage(pageNum);
+        
+        // Extraer texto
+        const textContent = await page.getTextContent();
+        const textItems = textContent.items.map((item: any) => item.str).join(' ');
+        
+        // Renderizar página como imagen para visualización
+        const viewport = page.getViewport({ scale: 1.5 });
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+        
+        if (context) {
+          const renderContext = {
+            canvasContext: context,
+            viewport: viewport,
+          };
+          await page.render(renderContext).promise;
+          pageImages.push(canvas.toDataURL());
+        }
+        
+        extractedContent.push({
+          pageNumber: pageNum,
+          text: textItems,
+          editable: true
+        });
+      }
+      
+      setPdfPages(pageImages);
+      setEditablePDFContent(extractedContent);
+      setShowPDFEditor(true);
+      
+      // Intentar convertir el contenido a formato de propuesta
+      convertPDFToProposalFormat(extractedContent);
+      
+    } catch (error) {
+      console.error('Error cargando PDF:', error);
+      alert('Error al cargar el PDF. Asegúrate de que sea un archivo PDF válido.');
+    } finally {
+      setIsLoadingPDF(false);
+    }
+  };
+
+  // Función para convertir contenido PDF a formato de propuesta
+  const convertPDFToProposalFormat = (content: any[]) => {
+    try {
+      const allText = content.map(page => page.text).join('\n');
+      
+      // Intentar extraer información básica del proyecto
+      const lines = allText.split('\n').filter(line => line.trim());
+      
+      const sections: Section[] = [];
+      let currentSection: Section | null = null;
+      let sectionCounter = 1;
+      
+      lines.forEach((line) => {
+        const trimmedLine = line.trim();
+        
+        // Detectar si es un título (líneas cortas, palabras capitalizadas, etc.)
+        if (trimmedLine.length > 0 && trimmedLine.length < 100 && 
+            (trimmedLine.match(/^[A-Z]/) || trimmedLine.includes(':'))) {
+          
+          // Guardar sección anterior si existe
+          if (currentSection) {
+            sections.push(currentSection);
+          }
+          
+          // Crear nueva sección
+          currentSection = {
+            id: sectionCounter.toString(),
+            title: trimmedLine.replace(':', ''),
+            type: "text",
+            content: "",
+          };
+          sectionCounter++;
+        } else if (currentSection && trimmedLine.length > 0) {
+          // Agregar contenido a la sección actual
+          currentSection.content += (currentSection.content ? '\n' : '') + trimmedLine;
+        }
+      });
+      
+      // Agregar última sección
+      if (currentSection) {
+        sections.push(currentSection);
+      }
+      
+      // Actualizar datos de propuesta con contenido extraído
+      if (sections.length > 0) {
+        setProposalData(prev => ({
+          ...prev,
+          projectInfo: {
+            ...prev.projectInfo,
+            name: sections[0]?.title || "Documento PDF Cargado",
+            client: "Cliente extraído del PDF",
+            date: new Date().toLocaleDateString("es-ES"),
+            totalCost: 0,
+            timeline: "Por definir",
+          },
+          sections: sections
+        }));
+        
+        setJsonInput(JSON.stringify({
+          projectInfo: {
+            name: sections[0]?.title || "Documento PDF Cargado",
+            client: "Cliente extraído del PDF",
+            date: new Date().toLocaleDateString("es-ES"),
+            totalCost: 0,
+            timeline: "Por definir",
+          },
+          sections: sections
+        }, null, 2));
+      }
+      
+    } catch (error) {
+      console.error('Error convirtiendo PDF a formato de propuesta:', error);
+    }
+  };
+
+  // Función para abrir selector de PDF
+  const openPDFSelector = () => {
+    pdfInputRef.current?.click();
+  };
+
+  // Función para manejar selección de PDF
+  const handlePDFSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file && file.type === 'application/pdf') {
+      loadPDFForEditing(file);
+    } else {
+      alert('Por favor selecciona un archivo PDF válido.');
+    }
+    // Limpiar el input
+    e.target.value = "";
+  };
+
+  // ---------------------- PLANTILLA EDITABLE ---------------------------
+  // Crear PDF vacío editable
+  const createEmptyEditablePDF = async () => {
+    const { createEditableTemplate } = await import("../utils/createEditableTemplate");
+    const bytes = await createEditableTemplate();
+    const blob = new Blob([bytes], { type: "application/pdf" });
+    window.open(URL.createObjectURL(blob));
+  };
+
+  // Llenar plantilla seleccionada con el JSON actual
+  const fillTemplateWithJSON = async (file: File) => {
+    try {
+      const arrayBuffer = await file.arrayBuffer();
+      const { fillTemplate } = await import("../utils/fillTemplate");
+      const filled = await fillTemplate(new Uint8Array(arrayBuffer), proposalData as any);
+      const blob = new Blob([filled], { type: "application/pdf" });
+      window.open(URL.createObjectURL(blob));
+    } catch (err) {
+      alert("No se pudo llenar la plantilla: " + (err as Error).message);
+    }
+  };
+
+  // -------------------------------------------------------------------
+
+  // Función para actualizar contenido editable del PDF
+  const updatePDFContent = (pageIndex: number, newText: string) => {
+    setEditablePDFContent(prev => 
+      prev.map((page, index) => 
+        index === pageIndex ? { ...page, text: newText } : page
+      )
+    );
+  };
+
+  // Función para guardar PDF editado
+  const savePDFEdited = async () => {
+    try {
+      setIsGeneratingPDF(true);
+      
+      if (!loadedPDF) {
+        alert('No hay PDF cargado para editar');
+        return;
+      }
+
+      // Crear nuevo PDF con el contenido editado
+      const pdfDoc = await PDFDocument.create();
+      
+      editablePDFContent.forEach(async (pageContent) => {
+        const page = pdfDoc.addPage();
+        const { width, height } = page.getSize();
+        
+        // Agregar texto editado
+        page.drawText(pageContent.text, {
+          x: 50,
+          y: height - 100,
+          size: 12,
+          color: rgb(0, 0, 0),
+          maxWidth: width - 100,
+        });
+      });
+
+      const pdfBytes = await pdfDoc.save();
+      
+      // Descargar PDF editado
+      const blob = new Blob([pdfBytes as unknown as BlobPart], { type: 'application/pdf' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = downloadUrl;
+      a.download = `pdf_editado_${new Date().toISOString().split('T')[0]}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      
+    } catch (error) {
+      console.error('Error guardando PDF editado:', error);
+      alert('Error al guardar el PDF editado');
+    } finally {
+      setIsGeneratingPDF(false);
+    }
+  };
+
+  // Funciones comentadas por ahora - no se usan en la interfaz actual
+  /*
   const loadDocumentsFromAPI = async () => {
     setIsLoadingDocuments(true);
     setDocumentsError("");
@@ -228,7 +481,6 @@ const ProposalGenerator: React.FC = () => {
     }
   };
 
-  // Función para cargar un documento específico
   const loadDocumentById = async (id: number) => {
     setIsLoadingDocuments(true);
     setDocumentsError("");
@@ -260,6 +512,7 @@ const ProposalGenerator: React.FC = () => {
       setIsLoadingDocuments(false);
     }
   };
+  */
 
   // Función para cargar datos desde JSON
   const loadFromJSON = (externalData?: any) => {
@@ -278,9 +531,32 @@ const ProposalGenerator: React.FC = () => {
       }
 
       // Validar estructura básica del JSON
-      if (!data.projectInfo || !data.sections) {
+      if (!data.projectInfo && !data.sections) {
+        // Si no tiene la estructura esperada, intentar convertir el JSON actual
+        if (data.id && data.title) {
+          // Es un JSON de sección individual, convertirlo al formato esperado
+          const convertedData = {
+            projectInfo: {
+              name: data.title || "Proyecto",
+              client: "Cliente",
+              date: new Date().toLocaleDateString("es-ES"),
+              totalCost: 0,
+              timeline: "Por definir"
+            },
+            sections: [data]
+          };
+          setProposalData(convertedData);
+          setJsonError("");
+          
+          // Generar PDF automáticamente
+          if (convertedData.sections && convertedData.sections.length > 0) {
+            generatePDFFromData(convertedData);
+          }
+          return;
+        }
+        
         setJsonError(
-          'El JSON debe contener "projectInfo" y "sections". Verifica el formato.'
+          'El JSON debe contener "projectInfo" y "sections" o ser una sección individual con "id" y "title". Verifica el formato.'
         );
         return;
       }
@@ -321,6 +597,11 @@ const ProposalGenerator: React.FC = () => {
 
       setProposalData(data);
       setJsonError("");
+      
+      // Generar PDF automáticamente cuando se carga JSON válido
+      if (data.sections && data.sections.length > 0) {
+        generatePDFFromData(data);
+      }
     } catch (error) {
       console.error("Error parsing JSON:", error);
       setJsonError(
@@ -643,6 +924,75 @@ const ProposalGenerator: React.FC = () => {
     setProposalData(utfsmData);
   };
 
+  // Función para cargar JSON de ejemplo para PDF
+  const loadExamplePDFJSON = async () => {
+    try {
+      const response = await fetch('/src/data/ejemplo-pdf.json');
+      const examplePDFData = await response.json();
+      
+      setJsonInput(JSON.stringify(examplePDFData, null, 2));
+      setProposalData(examplePDFData);
+    } catch (error) {
+      console.error('Error cargando JSON de ejemplo para PDF:', error);
+      // Fallback - usar datos directos si no se puede cargar el archivo
+      const fallbackData: ProposalData = {
+        projectInfo: {
+          name: "Sistema de Gestión Empresarial Integral",
+          client: "Empresa Tecnológica ABC S.A.",
+          date: "Diciembre 2024",
+          totalCost: 45000000,
+          timeline: "6 meses",
+        },
+        sections: [
+          {
+            id: "1",
+            title: "Resumen Ejecutivo",
+            type: "text",
+            content: "Esta propuesta presenta una solución integral para el desarrollo de un sistema de gestión empresarial que revolucionará los procesos administrativos de ABC S.A.\n\nNuestro enfoque se basa en tecnologías de vanguardia, metodologías ágiles y una experiencia de usuario excepcional que garantiza la adopción exitosa del sistema por parte de todos los usuarios.",
+            pageBreak: true,
+          },
+          {
+            id: "2",
+            title: "Objetivos y Beneficios del Proyecto",
+            type: "list",
+            content: [
+              "Automatizar completamente los procesos administrativos manuales existentes",
+              "Implementar un sistema centralizado de gestión de datos empresariales",
+              "Desarrollar dashboards ejecutivos con analytics en tiempo real",
+              "Integrar módulos de facturación, inventario, RRHH y CRM",
+              "Garantizar la seguridad de datos con protocolos de encriptación avanzados",
+              "Reducir costos operativos en un 30% mediante la automatización"
+            ],
+          },
+          {
+            id: "3",
+            title: "Equipo de Desarrollo y Distribución de Costos",
+            type: "table",
+            content: {
+              headers: ["Rol", "Horas Estimadas", "Tarifa por Hora", "Subtotal"],
+              rows: [
+                ["Project Manager Senior", "120", "$65.000", "$7.800.000"],
+                ["Arquitecto de Software", "150", "$85.000", "$12.750.000"],
+                ["Tech Lead Full-Stack", "180", "$80.000", "$14.400.000"],
+                ["Desarrollador Senior Frontend", "220", "$70.000", "$15.400.000"],
+                ["Desarrollador Senior Backend", "200", "$75.000", "$15.000.000"]
+              ],
+            },
+            pageBreak: true,
+          }
+        ],
+        styling: {
+          primaryColor: "#2563eb",
+          secondaryColor: "#1e40af",
+          fontFamily: "Arial, sans-serif",
+        },
+      };
+      
+      setJsonInput(JSON.stringify(fallbackData, null, 2));
+      setProposalData(fallbackData);
+    }
+  };
+
   // Función para agregar nueva sección
   const addSection = () => {
     const newSection: Section = {
@@ -794,7 +1144,7 @@ const ProposalPage = React.forwardRef(
       )} */}
       {/* Sections */}
       <div className="space-y-8">
-        {sections.map((section) => (
+        {sections.map((section: Section) => (
           <div key={section.id} className={section.pageBreak ? "page-break" : ""}>
             <h3 className="text-xl font-bold text-blue-600 mb-4">{section.title}</h3>
             {renderSectionContent(section)}
@@ -809,67 +1159,70 @@ const ProposalPage = React.forwardRef(
     </div>
   )
 );
-  // Función para generar PDF
+  // Función para generar PDF (nuevo enfoque usando pdf-lib)
+  const [generatedPDF, setGeneratedPDF] = useState<Uint8Array | null>(null);
+  const [iframeURL, setIframeURL] = useState<string | null>(null);
+  const [isEditingPDF, setIsEditingPDF] = useState(false);
+
+  
+  // Función para generar PDF desde datos específicos
+  const generatePDFFromData = async (data: ProposalData) => {
+    setIsGeneratingPDF(true);
+    try {
+      const { buildProposalPDF } = await import("../utils/ProposalPDFBuilder");
+      const pdfBytes = await buildProposalPDF(data);
+
+      setGeneratedPDF(pdfBytes);
+      const blob = new Blob([pdfBytes as unknown as BlobPart], { type: "application/pdf" });
+      const url = URL.createObjectURL(blob);
+      setIframeURL(url);
+      
+      // Crear URL separada para descarga
+      const downloadUrl = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      const fileName = `${data.projectInfo.name || "propuesta"}_${new Date()
+        .toISOString()
+        .split("T")[0]}.pdf`;
+      a.href = downloadUrl;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(downloadUrl);
+    } catch (error) {
+      console.error("Error al generar PDF:", error);
+      alert("Error al generar el PDF. Intenta de nuevo.");
+    } finally {
+      setIsGeneratingPDF(false);
+    }
+  };
+
+  // Función para generar PDF y mostrarlo
   const generatePDF = async () => {
     setIsGeneratingPDF(true);
     try {
-      const pdf = new jsPDF("p", "mm", "a4");
-      const pageWidth = 210;
-      const pageHeight = 295;
-  
-      // Divide las secciones en páginas según pageBreak
-      let pages: Section[][] = [];
-      let currentPage: Section[] = [];
-      proposalData.sections.forEach((section, idx) => {
-        currentPage.push(section);
-        if (section.pageBreak || idx === proposalData.sections.length - 1) {
-          pages.push(currentPage);
-          currentPage = [];
-        }
-      });
-  
-      for (let i = 0; i < pages.length; i++) {
-        // Crea un div oculto
-        const pageDiv = document.createElement("div");
-        pageDiv.style.position = "absolute";
-        pageDiv.style.left = "-9999px";
-        document.body.appendChild(pageDiv);
-  
-        // Renderiza el componente ProposalPage en ese div
-        // OJO: necesitas ReactDOM.render (o createRoot en React 18+)
-        // Aquí un ejemplo para React 17:
-        import("react-dom").then(ReactDOM => {
-          ReactDOM.render(
-            <ProposalPage
-              projectInfo={proposalData.projectInfo}
-              sections={pages[i]}
-              renderSectionContent={renderSectionContent}
-              isFirstPage={i === 0}
-            />,
-            pageDiv
-          );
-        });
-  
-        // Espera un pequeño tiempo para que se renderice
-        await new Promise((res) => setTimeout(res, 100));
-  
-        // Convierte el div a imagen
-        const canvas = await html2canvas(pageDiv, { scale: 2, useCORS: true });
-        const imgData = canvas.toDataURL("image/png", 1.0);
-  
-        if (i > 0) pdf.addPage();
-        pdf.addImage(imgData, "PNG", 0, 0, pageWidth, pageHeight);
-  
-        // Limpia el div
-        import("react-dom").then(ReactDOM => {
-          ReactDOM.unmountComponentAtNode(pageDiv);
-        });
-        document.body.removeChild(pageDiv);
-      }
-  
-      const fileName = `${proposalData.projectInfo.name || "propuesta"}_${new Date().toISOString().split("T")[0]}.pdf`;
-      pdf.save(fileName);
+      const { buildProposalPDF } = await import("../utils/ProposalPDFBuilder");
+      const pdfBytes = await buildProposalPDF(proposalData as any);
+
+      setGeneratedPDF(pdfBytes);
+      const blob = new Blob([pdfBytes as unknown as BlobPart], { type: "application/pdf" });
+      const url = URL.createObjectURL(blob);
+      setIframeURL(url);
+      
+      // Crear URL separada para descarga
+      const downloadUrl = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      const fileName = `${proposalData.projectInfo.name || "propuesta"}_${new Date()
+        .toISOString()
+        .split("T")[0]}.pdf`;
+      a.href = downloadUrl;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(downloadUrl);
     } catch (error) {
+      console.error("Error al generar PDF:", error);
       alert("Error al generar el PDF. Intenta de nuevo.");
     } finally {
       setIsGeneratingPDF(false);
@@ -877,23 +1230,28 @@ const ProposalPage = React.forwardRef(
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      <div className="max-w-7xl mx-auto p-6">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Sistema de Licitaciones
+        <div className="mb-8 text-center">
+          <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm rounded-full px-6 py-2 mb-4 shadow-sm">
+            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+            <span className="text-sm font-medium text-gray-600">GUX Hackathon - Cotizador v0</span>
+            <span className="text-xs text-gray-400">Herramienta Interna</span>
+          </div>
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-3">
+            Generador de Propuestas
           </h1>
-          <p className="text-gray-600">
-            Gestión y generación de propuestas comerciales
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Crea propuestas profesionales con nuestro editor de PDF inteligente
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Vista de Propuesta y Formularios */}
-          <div className="lg:col-span-2 space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Panel izquierdo - Formularios y controles */}
+          <div className="space-y-6">
             {/* Documentos */}
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-8 hover:shadow-2xl transition-all duration-300">
               <div className="flex items-center gap-2 mb-4">
                 <Upload className="text-blue-600" size={20} />
                 <h3 className="text-lg font-semibold text-gray-900">
@@ -1007,6 +1365,10 @@ const ProposalPage = React.forwardRef(
               </div>
             </div>
 
+      
+
+     
+
             {/* JSON Input Section */}
             <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
@@ -1014,13 +1376,7 @@ const ProposalPage = React.forwardRef(
               </h3>
               <div className="space-y-4">
                 <div className="flex gap-2 flex-wrap">
-                  <button
-                    onClick={generateExampleJSON}
-                    className="btn-secondary flex items-center gap-2"
-                  >
-                    <Plus size={16} />
-                    Generar JSON de Ejemplo
-                  </button>
+                 
                   <button
                     onClick={loadUTFSMJSON}
                     className="btn-secondary flex items-center gap-2"
@@ -1028,6 +1384,7 @@ const ProposalPage = React.forwardRef(
                     <FileText size={16} />
                     Cargar JSON UTFSM
                   </button>
+   
                   <button
                     onClick={loadFromJSON}
                     className="btn-primary flex items-center gap-2"
@@ -1098,23 +1455,7 @@ const ProposalPage = React.forwardRef(
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Costo Total
-                  </label>
-                  <input
-                    type="number"
-                    className="input-field"
-                    value={proposalData.projectInfo.totalCost}
-                    onChange={(e) =>
-                      setProposalData((prev) => ({
-                        ...prev,
-                        projectInfo: {
-                          ...prev.projectInfo,
-                          totalCost: Number(e.target.value),
-                        },
-                      }))
-                    }
-                  />
+                 
                 </div>
               </div>
             </div>
@@ -1288,7 +1629,8 @@ const ProposalPage = React.forwardRef(
               </div>
             </div>
 
-            {/* PDF Preview */}
+            {/* PDF Preview - COMENTADO TEMPORALMENTE */}
+            {/*
             {proposalData.sections.length > 0 && (
               <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">
@@ -1299,7 +1641,6 @@ const ProposalPage = React.forwardRef(
                   className="bg-gray-50 border border-gray-200 rounded-lg p-8 max-w-4xl mx-auto"
                   style={{ minHeight: "1000px" }}
                 >
-                  {/* Header */}
                   <div className="text-center mb-8 pb-6 border-b-2 border-blue-600">
                     <h1 className="text-3xl font-bold text-gray-900 mb-2">
                       GUX
@@ -1309,7 +1650,6 @@ const ProposalPage = React.forwardRef(
                     </p>
                   </div>
 
-                  {/* Project Info */}
                   <div className="mb-8 p-6 bg-gray-50 rounded-lg">
                     <h2 className="text-2xl font-bold text-gray-900 mb-4">
                       {proposalData.projectInfo.name || "Nombre del Proyecto"}
@@ -1343,7 +1683,6 @@ const ProposalPage = React.forwardRef(
                     </div>
                   </div>
 
-                  {/* Sections */}
                   <div className="space-y-8">
                     {proposalData.sections.map((section, index) => (
                       <div
@@ -1358,7 +1697,6 @@ const ProposalPage = React.forwardRef(
                     ))}
                   </div>
 
-                  {/* Footer */}
                   <div className="mt-12 pt-6 border-t-2 border-gray-300 text-center text-gray-600">
                     <p>Equipo GUX - Especialistas en Desarrollo de Software</p>
                     <p>Email: contacto@gux.com | Tel: +1 (555) 123-4567</p>
@@ -1366,38 +1704,72 @@ const ProposalPage = React.forwardRef(
                 </div>
               </div>
             )}
+            */}
           </div>
 
-          {/* Sidebar */}
-          <div className="space-y-6">
-            {/* Generador de PDF */}
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-              <div className="flex items-center gap-2 mb-4">
-                <Download className="text-green-600" size={20} />
-                <h3 className="text-lg font-semibold text-gray-900">
-                  Generador de PDF
-                </h3>
-              </div>
-              <div className="space-y-4">
+          {/* Panel derecho - PDF y editor */}
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 h-screen">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-xl font-semibold text-gray-900">
+                Vista Previa del PDF
+              </h3>
+              <div className="flex gap-2">
                 <button
                   onClick={generatePDF}
                   disabled={
                     proposalData.sections.length === 0 || isGeneratingPDF
                   }
-                  className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50"
+                  className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50"
                 >
                   <Download size={16} />
-                  {isGeneratingPDF ? "Generando PDF..." : "Descargar PDF"}
+                                    {isGeneratingPDF ? "Generando..." : "Generar PDF"}
                 </button>
-              </div>
-              {isGeneratingPDF && (
-                <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
-                  <p className="text-blue-700 text-sm">
-                    Generando PDF... Esto puede tomar unos segundos.
-                  </p>
+                {iframeURL && (
+                  <button
+                    onClick={() => setIsEditingPDF(!isEditingPDF)}
+                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  >
+                    {isEditingPDF ? "Ver PDF" : "Constructor PDF"}
+                  </button>
+                )}
+                </div>
+            </div>
+            
+            {/* Área del PDF - Pantalla completa */}
+            <div className="h-full">
+              {isGeneratingPDF ? (
+                <div className="h-full flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto mb-4"></div>
+                    <p className="text-gray-600">Generando PDF...</p>
+                  </div>
+                </div>
+              ) : iframeURL ? (
+                <div className="h-full">
+                  {isEditingPDF ? (
+                    <PDFEditor 
+                      blobUrl={iframeURL} 
+                      onSave={(pdfBytes) => {
+                        const newUrl = URL.createObjectURL(new Blob([pdfBytes as unknown as BlobPart], { type: "application/pdf" }));
+                        setIframeURL(newUrl);
+                        setIsEditingPDF(false);
+                      }} 
+                    />
+                  ) : (
+                    <PDFIframeViewer blobUrl={iframeURL} height="100%" />
+                  )}
+                </div>
+              ) : (
+                <div className="h-full flex items-center justify-center">
+                  <div className="text-center">
+                    <File size={64} className="text-gray-400 mx-auto mb-4" />
+                    <p className="text-gray-500 text-lg">Carga un JSON para generar el PDF</p>
+                    <p className="text-gray-400 text-sm mt-2">El PDF aparecerá aquí automáticamente</p>
+                  </div>
                 </div>
               )}
             </div>
+          </div>
 
             {/* Observaciones y Correcciones (opcional) */}
             {/*   <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
@@ -1421,7 +1793,6 @@ const ProposalPage = React.forwardRef(
                 </p>
               </div>
             </div> */}
-          </div>
         </div>
       </div>
     </div>

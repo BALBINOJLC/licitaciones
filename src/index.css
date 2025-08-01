@@ -24,4 +24,27 @@
   .card {
     @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6;
   }
+  
+  .page-break {
+    @apply break-before-page;
+  }
+  
+  .primary-600 {
+    @apply bg-blue-600;
+  }
+  
+  .primary-700 {
+    @apply bg-blue-700;
+  }
+  
+  .primary-500 {
+    @apply border-blue-500;
+  }
+}
+
+/* Estilos para impresión de PDF */
+@media print {
+  .page-break {
+    page-break-before: always;
+  }
 } 

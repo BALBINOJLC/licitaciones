@@ -30,9 +30,13 @@ npm install
 echo "📦 Instalando tipos adicionales..."
 npm install --save-dev @types/file-saver
 
+# Instalar dependencias para edición de PDF
+echo "📄 Instalando dependencias para edición de PDF..."
+npm install pdf-lib pdfjs-dist
+
 # Verificar que todas las dependencias estén instaladas
 echo "🔍 Verificando dependencias críticas..."
-npm list jspdf html2canvas xlsx file-saver
+npm list jspdf html2canvas xlsx file-saver pdf-lib pdfjs-dist
 
 # Verificar tipos
 echo "🔍 Verificando tipos..."
@@ -46,9 +50,10 @@ echo "   npm run dev"
 echo ""
 echo "🧪 Para probar las funcionalidades:"
 echo "   1. Abre la aplicación en el navegador"
-echo "   2. Ve a la pestaña 'Test PDF/Excel'"
-echo "   3. Prueba la generación de archivos"
-echo "   4. Si los tests pasan, usa el generador principal"
+echo "   2. Usa 'Ejemplo para PDF' para cargar datos de prueba"
+echo "   3. Prueba la generación de PDF con 'Descargar PDF'"
+echo "   4. Prueba la edición de PDF con 'Cargar PDF para Editar'"
+echo "   5. Sube archivos de licitación para generar propuestas automáticamente"
 echo ""
 echo "🔧 Si hay problemas:"
 echo "   - Revisa la consola del navegador (F12)"

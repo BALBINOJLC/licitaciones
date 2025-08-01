@@ -1,0 +1,159 @@
+{
+  "projectInfo": {
+    "name": "Sistema de Gestión Empresarial Integral",
+    "client": "Empresa Tecnológica ABC S.A.",
+    "date": "Diciembre 2024",
+    "totalCost": 45000000,
+    "timeline": "6 meses"
+  },
+  "sections": [
+    {
+      "id": "1",
+      "title": "Resumen Ejecutivo",
+      "type": "text",
+      "content": "Esta propuesta presenta una solución integral para el desarrollo de un sistema de gestión empresarial que revolucionará los procesos administrativos de ABC S.A.\n\nNuestro enfoque se basa en tecnologías de vanguardia, metodologías ágiles y una experiencia de usuario excepcional que garantiza la adopción exitosa del sistema por parte de todos los usuarios.\n\nEl proyecto incluye módulos de gestión financiera, recursos humanos, inventario, CRM y business intelligence, todo integrado en una plataforma unificada que mejorará significativamente la eficiencia operativa.",
+      "pageBreak": true
+    },
+    {
+      "id": "2",
+      "title": "Objetivos y Beneficios del Proyecto",
+      "type": "list",
+      "content": [
+        "Automatizar completamente los procesos administrativos manuales existentes",
+        "Implementar un sistema centralizado de gestión de datos empresariales",
+        "Desarrollar dashboards ejecutivos con analytics en tiempo real",
+        "Integrar módulos de facturación, inventario, RRHH y CRM",
+        "Garantizar la seguridad de datos con protocolos de encriptación avanzados",
+        "Reducir costos operativos en un 30% mediante la automatización",
+        "Mejorar la toma de decisiones con reportes inteligentes",
+        "Capacitar integralmente al personal en el uso del nuevo sistema"
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Alcance Técnico y Funcionalidades",
+      "type": "text",
+      "content": "El sistema comprenderá los siguientes módulos principales:\n\n🔹 Módulo de Gestión de Usuarios y Permisos:\nControl granular de acceso, autenticación multifactor, gestión de roles y permisos por departamento.\n\n🔹 Módulo Financiero Avanzado:\nFacturación automática, gestión de pagos, conciliación bancaria, reportes contables en tiempo real y cumplimiento normativo.\n\n🔹 Módulo de Inventario Inteligente:\nControl de stock en tiempo real, alertas automáticas, trazabilidad completa, integración con proveedores y predicción de demanda con IA.\n\n🔹 Módulo de Recursos Humanos:\nGestión integral de personal, nómina automatizada, evaluaciones de desempeño, control de asistencia biométrico.\n\n🔹 Dashboard Ejecutivo y Business Intelligence:\nIndicadores KPI personalizables, gráficos interactivos, análisis predictivo y reportes automáticos.\n\n🔹 Módulo CRM Integrado:\nGestión completa de clientes, seguimiento de ventas, automatización de marketing y análisis de satisfacción."
+    },
+    {
+      "id": "4",
+      "title": "Equipo de Desarrollo y Distribución de Costos",
+      "type": "table",
+      "content": {
+        "headers": ["Rol", "Horas Estimadas", "Tarifa por Hora", "Subtotal"],
+        "rows": [
+          ["Project Manager Senior", "120", "$65.000", "$7.800.000"],
+          ["Arquitecto de Software", "150", "$85.000", "$12.750.000"],
+          ["Tech Lead Full-Stack", "180", "$80.000", "$14.400.000"],
+          ["Desarrollador Senior Frontend", "220", "$70.000", "$15.400.000"],
+          ["Desarrollador Senior Backend", "200", "$75.000", "$15.000.000"],
+          ["Especialista en UX/UI", "140", "$65.000", "$9.100.000"],
+          ["DevOps Engineer", "80", "$70.000", "$5.600.000"],
+          ["QA Engineer Senior", "120", "$60.000", "$7.200.000"],
+          ["Especialista en Seguridad", "60", "$90.000", "$5.400.000"],
+          ["Business Analyst", "100", "$55.000", "$5.500.000"]
+        ]
+      },
+      "pageBreak": true
+    },
+    {
+      "id": "5",
+      "title": "Cronograma Detallado de Implementación",
+      "type": "text",
+      "content": "El proyecto se ejecutará en 6 fases claramente definidas durante 6 meses:\n\n📅 FASE 1 - Análisis y Diseño (4 semanas):\n• Levantamiento exhaustivo de requerimientos\n• Análisis de procesos actuales y mapeo de mejoras\n• Diseño de arquitectura técnica y base de datos\n• Creación de wireframes y prototipos UX/UI\n• Planificación detallada del proyecto\n\n📅 FASE 2 - Desarrollo del Core del Sistema (6 semanas):\n• Implementación de la arquitectura base\n• Desarrollo del sistema de autenticación y autorización\n• Creación de APIs fundamentales\n• Desarrollo de la interfaz de usuario principal\n• Implementación del módulo de gestión de usuarios\n\n📅 FASE 3 - Desarrollo de Módulos Principales (8 semanas):\n• Implementación del módulo financiero\n• Desarrollo del módulo de inventario\n• Creación del módulo de RRHH\n• Implementación del CRM integrado\n• Desarrollo de integraciones entre módulos\n\n📅 FASE 4 - Business Intelligence y Reportes (4 semanas):\n• Desarrollo del dashboard ejecutivo\n• Implementación de analytics y reportes\n• Creación de indicadores KPI personalizables\n• Desarrollo de herramientas de análisis predictivo\n\n📅 FASE 5 - Testing y Optimización (3 semanas):\n• Pruebas unitarias y de integración exhaustivas\n• Testing de performance y carga\n• Pruebas de seguridad y penetration testing\n• Optimización del sistema y corrección de bugs\n• Pruebas de usuario final (UAT)\n\n📅 FASE 6 - Despliegue y Capacitación (1 semana):\n• Despliegue en ambiente de producción\n• Migración de datos existentes\n• Capacitación intensiva del personal\n• Documentación final y entrega\n• Activación del plan de soporte"
+    },
+    {
+      "id": "6",
+      "title": "Entregables y Documentación",
+      "type": "list",
+      "content": [
+        "Sistema completo desarrollado y desplegado en producción",
+        "Código fuente completo con documentación técnica detallada",
+        "Base de datos optimizada con respaldos automáticos configurados",
+        "Documentación de arquitectura y diagramas técnicos",
+        "Manuales de usuario diferenciados por rol y departamento",
+        "Videos tutoriales y material de capacitación interactivo",
+        "Plan de capacitación ejecutado con certificación de usuarios",
+        "Documentación de APIs y guías de integración",
+        "Plan de mantenimiento y actualización del sistema",
+        "Infraestructura cloud configurada con monitoreo 24/7",
+        "12 meses de soporte técnico especializado incluido",
+        "Plan de contingencia y recuperación ante desastres"
+      ]
+    },
+    {
+      "id": "7",
+      "title": "Stack Tecnológico y Justificación",
+      "type": "table",
+      "content": {
+        "headers": ["Componente", "Tecnología Propuesta", "Justificación Técnica"],
+        "rows": [
+          ["Frontend", "React 18 + TypeScript", "Desarrollo moderno, componentes reutilizables, tipado fuerte"],
+          ["Backend", "Node.js + Express + NestJS", "Escalabilidad, performance, arquitectura modular"],
+          ["Base de Datos", "PostgreSQL + Redis", "Robustez ACID, cache en memoria para performance"],
+          ["Autenticación", "JWT + OAuth2 + MFA", "Seguridad empresarial, estándares de la industria"],
+          ["Cloud Infrastructure", "AWS / Azure", "Escalabilidad automática, disponibilidad 99.9%"],
+          ["CI/CD", "Docker + Kubernetes + Jenkins", "Despliegues automatizados, contenedorización"],
+          ["Monitoring", "Prometheus + Grafana", "Monitoreo proactivo, alertas en tiempo real"],
+          ["Testing", "Jest + Cypress + SonarQube", "Cobertura completa, calidad de código garantizada"]
+        ]
+      },
+      "pageBreak": true
+    },
+    {
+      "id": "8",
+      "title": "Seguridad y Cumplimiento Normativo",
+      "type": "text",
+      "content": "La seguridad es una prioridad fundamental en nuestro desarrollo:\n\n🔐 Medidas de Seguridad Implementadas:\n\n• Encriptación end-to-end de datos sensibles con AES-256\n• Autenticación multifactor obligatoria para usuarios administrativos\n• Auditoría completa de acciones con logs inmutables\n• Respaldos automáticos encriptados cada 6 horas\n• Firewall de aplicación web (WAF) con protección DDoS\n• Penetration testing trimestral por terceros certificados\n• Cumplimiento con ISO 27001 y mejores prácticas OWASP\n\n📋 Cumplimiento Normativo:\n\n• Cumplimiento total con la Ley de Protección de Datos Personales\n• Implementación de políticas GDPR para clientes internacionales\n• Trazabilidad completa para auditorías contables y tributarias\n• Reportes automáticos para cumplimiento SII y organismos reguladores\n• Certificación de seguridad SOC 2 Tipo II\n• Políticas de retención de datos configurables por tipo de información"
+    },
+    {
+      "id": "9",
+      "title": "Plan de Capacitación Integral",
+      "type": "text",
+      "content": "Nuestro programa de capacitación garantiza la adopción exitosa del sistema:\n\n👥 Capacitación por Roles:\n\n🔹 Usuarios Ejecutivos (8 horas):\n• Dashboards ejecutivos y reportes estratégicos\n• Interpretación de KPIs y métricas de negocio\n• Herramientas de análisis y toma de decisiones\n• Configuración de alertas personalizadas\n\n🔹 Usuarios Administrativos (12 horas):\n• Gestión completa de usuarios y permisos\n• Configuración de módulos y parámetros\n• Gestión de respaldos y mantenimiento básico\n• Resolución de problemas comunes\n\n🔹 Usuarios Operativos (6 horas por módulo):\n• Uso diario de las funcionalidades específicas\n• Flujos de trabajo optimizados\n• Mejores prácticas y tips de productividad\n• Casos de uso prácticos y ejercicios\n\n📚 Metodología de Capacitación:\n\n• Sesiones presenciales y virtuales según preferencia\n• Material multimedia interactivo y gamificado\n• Simuladores de práctica con datos de prueba\n• Evaluaciones y certificaciones por módulo\n• Soporte post-capacitación durante 60 días\n• Actualizaciones de entrenamiento incluidas por 12 meses"
+    },
+    {
+      "id": "10",
+      "title": "Experiencia Relevante y Referencias",
+      "type": "text",
+      "content": "Nuestro equipo cuenta con más de 15 años de experiencia en desarrollo de sistemas empresariales:\n\n🏆 Proyectos Destacados Recientes:\n\n• Banco Nacional de Chile - Sistema de Gestión de Créditos\n  Proyecto: $180M | Duración: 8 meses | Estado: Exitoso\n  Tecnologías: React, Node.js, PostgreSQL, AWS\n  Resultado: 40% reducción en tiempos de aprobación\n\n• Retail Corp S.A. - Plataforma de E-commerce Omnicanal\n  Proyecto: $120M | Duración: 6 meses | Estado: Exitoso\n  Tecnologías: React Native, Node.js, MongoDB, Azure\n  Resultado: 300% aumento en ventas online\n\n• Ministerio de Salud - Sistema de Gestión Hospitalaria\n  Proyecto: $200M | Duración: 10 meses | Estado: Exitoso\n  Tecnologías: Angular, .NET Core, SQL Server, Docker\n  Resultado: 50% mejora en atención al paciente\n\n• Universidad Central - Campus Virtual Integrado\n  Proyecto: $80M | Duración: 5 meses | Estado: Exitoso\n  Tecnologías: React, Python Django, PostgreSQL\n  Resultado: 95% satisfacción estudiantil\n\n✅ Certificaciones del Equipo:\n• AWS Solutions Architect Professional\n• Microsoft Azure Expert\n• Certified Scrum Master (CSM)\n• ISO 27001 Lead Implementer\n• CISSP - Certified Information Systems Security Professional",
+      "pageBreak": true
+    },
+    {
+      "id": "11",
+      "title": "Garantías y Soporte Post-Implementación",
+      "type": "text",
+      "content": "Ofrecemos un programa integral de garantías y soporte:\n\n🛡️ Garantías Incluidas:\n\n• 18 meses de garantía total sobre defectos funcionales\n• Corrección gratuita de bugs críticos en 4 horas\n• Corrección de bugs menores en 48 horas\n• Garantía de performance según SLAs acordados\n• Actualización gratuita de librerías y dependencias\n• Parches de seguridad aplicados inmediatamente\n\n🔧 Niveles de Soporte:\n\n📞 Soporte Nivel 1 - Básico (Incluido 12 meses):\n• Mesa de ayuda telefónica de lunes a viernes 8AM-6PM\n• Resolución de consultas funcionales básicas\n• Acceso a base de conocimiento online\n• Respuesta garantizada en 4 horas\n\n🚀 Soporte Nivel 2 - Avanzado (Opcional):\n• Soporte 24/7 incluido fines de semana\n• Acceso directo a ingenieros especializados\n• Monitoreo proactivo del sistema\n• Análisis mensual de performance y optimización\n• Respuesta garantizada en 1 hora\n\n⚡ Soporte Nivel 3 - Premium (Opcional):\n• Ingeniero dedicado part-time\n• Desarrollo de nuevas funcionalidades menores\n• Actualizaciones tecnológicas programadas\n• Consultoría estratégica trimestral\n• SLA de 99.9% uptime garantizado\n\n💡 Servicios Adicionales:\n• Talleres de optimización de procesos trimestrales\n• Evaluaciones de seguridad semestrales\n• Planes de contingencia y disaster recovery\n• Migración a nuevas versiones sin downtime"
+    },
+    {
+      "id": "12",
+      "title": "Factores Críticos de Éxito",
+      "type": "list",
+      "content": [
+        "Compromiso y participación activa del equipo directivo de ABC S.A.",
+        "Designación de un Project Owner interno con autoridad decisoria",
+        "Disponibilidad de usuarios clave para testing y validación continua",
+        "Acceso oportuno a sistemas legacy para migración de datos",
+        "Definición clara de procesos de negocio y reglas de autorización",
+        "Infraestructura IT preparada según especificaciones técnicas",
+        "Gestión efectiva del cambio organizacional",
+        "Comunicación transparente y regular entre todos los stakeholders",
+        "Cumplimiento de hitos y fechas críticas del cronograma",
+        "Capacitación oportuna y completa de usuarios finales",
+        "Ambiente de QA disponible para pruebas desde la semana 4",
+        "Políticas de seguridad y acceso definidas antes del desarrollo"
+      ]
+    },
+    {
+      "id": "13",
+      "title": "Inversión Total y Condiciones Comerciales",
+      "type": "text",
+      "content": "💰 INVERSIÓN TOTAL DEL PROYECTO: $45.000.000 (CLP)\n\n📊 Desglose Detallado de Costos:\n\n• Desarrollo de Software (70%): $31.500.000\n  - Análisis, diseño y arquitectura: $4.500.000\n  - Desarrollo frontend y backend: $18.000.000\n  - Integraciones y APIs: $5.000.000\n  - Testing y QA: $4.000.000\n\n• Infraestructura y Tecnología (15%): $6.750.000\n  - Licencias de software: $2.250.000\n  - Infraestructura cloud (1 año): $3.000.000\n  - Herramientas de desarrollo: $1.500.000\n\n• Capacitación y Documentación (10%): $4.500.000\n  - Capacitación presencial: $2.500.000\n  - Material educativo: $1.000.000\n  - Documentación técnica: $1.000.000\n\n• Gestión de Proyecto y Soporte (5%): $2.250.000\n  - Project Management: $1.500.000\n  - Soporte inicial (3 meses): $750.000\n\n💳 Modalidades de Pago Flexibles:\n\nOpción A - Pago Tradicional:\n• 30% al firmar contrato: $13.500.000\n• 40% al completar Fase 3: $18.000.000\n• 30% al go-live exitoso: $13.500.000\n\nOpción B - Pago por Hitos:\n• 5 cuotas de $9.000.000 al completar cada fase\n\nOpción C - Financiamiento Extendido:\n• 20% inicial: $9.000.000\n• 12 cuotas mensuales de $3.000.000\n\n🎁 Beneficios Adicionales Incluidos:\n• 12 meses de hosting cloud gratuito\n• Actualizaciones menores sin costo por 18 meses\n• 5% descuento por pago anticipado total\n• Garantía de satisfacción 100% o reembolso\n• Migración de datos legacy sin costo adicional"
+    }
+  ],
+  "styling": {
+    "primaryColor": "#2563eb",
+    "secondaryColor": "#1e40af",
+    "fontFamily": "Arial, sans-serif"
+  }
+}
